@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
         posterImage(),
         Padding(
           padding: const EdgeInsets.only(top: 10.0),
-          child: tagList(size: size, textTheme: textTheme),
+          child: TagList(size: size, textTheme: textTheme),
         ),
         Padding(
           padding:
@@ -232,8 +232,8 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class tagList extends StatelessWidget {
-  const tagList({
+class TagList extends StatelessWidget {
+  const TagList({
     Key? key,
     required this.size,
     required this.textTheme,

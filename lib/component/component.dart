@@ -18,7 +18,7 @@ class TechDivider extends StatelessWidget {
       children: [
         Divider(
             thickness: 1.5, indent: size.width / 6, endIndent: size.width / 6),
-        hashtag(
+        Hashtag(
           index: index,
           textTheme: textTheme,
           size: size,
@@ -28,8 +28,8 @@ class TechDivider extends StatelessWidget {
   }
 }
 
-class hashtag extends StatelessWidget {
-  hashtag(
+class Hashtag extends StatelessWidget {
+  Hashtag(
       {Key? key,
       required this.index,
       required this.textTheme,

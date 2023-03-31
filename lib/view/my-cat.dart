@@ -4,7 +4,6 @@ import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/model.dart';
-import 'package:tech_blog/view/homeScreen.dart';
 
 class MyCats extends StatefulWidget {
   const MyCats({super.key});
@@ -86,7 +85,7 @@ class _MyCatsState extends State<MyCats> {
                               }
                             });
                           },
-                          child: hashtag(
+                          child: Hashtag(
                             size: size,
                             index: index,
                             textTheme: textTheme,
