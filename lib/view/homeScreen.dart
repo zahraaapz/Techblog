@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               ImageIcon(
                 Assets.images.pen,
-                color: Solidcolor.colortitle,
+                color: SolidColor.colorTitle,
               ),
               const SizedBox(
                 width: 8,
@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.only(right: size.width / 10),
           child: Row(
             children: [
-              ImageIcon(Assets.images.mic, color: Solidcolor.colortitle),
+              ImageIcon(Assets.images.mic, color: SolidColor.colorTitle),
               const SizedBox(
                 width: 8,
               ),

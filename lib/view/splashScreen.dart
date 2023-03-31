@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           const SpinKitCircle(
             size: 30,
-            color: Solidcolor.primary,
+            color: SolidColor.primary,
           ),
         ]),
       ),

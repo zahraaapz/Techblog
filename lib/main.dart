@@ -29,20 +29,20 @@ class Main extends StatelessWidget {
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
                 borderSide:
-                    const BorderSide(width: 3, color: Solidcolor.colortitle)),
+                    const BorderSide(width: 3, color: SolidColor.colorTitle)),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
                 borderSide:
-                    const BorderSide(width: 3, color: Solidcolor.primary)),
+                    const BorderSide(width: 3, color: SolidColor.primary)),
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.resolveWith((state) {
               if (state.contains(MaterialState.pressed)) {
-                return Solidcolor.primary;
+                return SolidColor.primary;
               }
 
-              return Solidcolor.colortitle;
+              return SolidColor.colorTitle;
             }), textStyle: MaterialStateProperty.resolveWith((state) {
               if (state.contains(MaterialState.pressed)) {
                 return textTheme.headline4;
@@ -57,7 +57,7 @@ class Main extends StatelessWidget {
                   color: Colors.white,
                   fontWeight: FontWeight.w300),
               headline3: TextStyle(
-                  color: Solidcolor.colortitle,
+                  color: SolidColor.colorTitle,
                   fontWeight: FontWeight.w300,
                   fontSize: 14),
               headline4: TextStyle(

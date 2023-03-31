@@ -82,7 +82,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: Solidcolor.bg,
+            backgroundColor: SolidColor.bg,
             elevation: 0,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -142,7 +142,7 @@ class Buttonbar extends StatelessWidget {
         height: size.height / 10,
         decoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: GradientColor.naviButcolorBg,
+                colors: GradientColor.naviButColorBg,
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter)),
         child: Padding(
@@ -153,7 +153,7 @@ class Buttonbar extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
                 gradient: LinearGradient(
-                  colors: GradientColor.naviButcolor,
+                  colors: GradientColor.naviButColor,
                 )),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
