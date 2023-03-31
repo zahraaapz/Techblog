@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/string.dart';
+import 'package:tech_blog/component/string.dart';
 import 'package:tech_blog/view/my-cat.dart';
 import 'package:validators/validators.dart';
 
