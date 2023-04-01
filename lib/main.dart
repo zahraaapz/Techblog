@@ -25,7 +25,7 @@ class Main extends StatelessWidget {
           inputDecorationTheme: InputDecorationTheme(
             filled: true,
             fillColor: Colors.white,
-            hintStyle: textTheme.headline4,
+            hintStyle: textTheme.headlineMedium,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
                 borderSide:
@@ -45,26 +45,26 @@ class Main extends StatelessWidget {
               return SolidColor.colorTitle;
             }), textStyle: MaterialStateProperty.resolveWith((state) {
               if (state.contains(MaterialState.pressed)) {
-                return textTheme.headline4;
+                return textTheme.headlineMedium;
               }
-              return textTheme.headline2;
+              return textTheme.displayMedium;
             })),
           ),
           fontFamily: 'dana',
           textTheme: const TextTheme(
-              headline1: TextStyle(
+              displayLarge: TextStyle(
                   fontSize: 13,
                   color: Colors.white,
                   fontWeight: FontWeight.w300),
-              headline3: TextStyle(
+              displaySmall: TextStyle(
                   color: SolidColor.colorTitle,
                   fontWeight: FontWeight.w300,
                   fontSize: 14),
-              headline4: TextStyle(
+              headlineMedium: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w300,
                   fontSize: 14),
-              headline2: TextStyle(
+              displayMedium: TextStyle(
                   fontSize: 16,
                   color: Colors.white,
                   fontWeight: FontWeight.w700))),
