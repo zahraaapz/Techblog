@@ -3,6 +3,7 @@ class Model {
   Model({required this.title});
 }
 
+
 List<Model> listTag = [
   Model(title: 'جاوا'),
   Model(title: 'هوش مصنوعی'),
