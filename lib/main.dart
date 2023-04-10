@@ -2,7 +2,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tech_blog/component/color.dart';
-import 'package:tech_blog/view/my-cat.dart';
+
+import 'package:tech_blog/view/splashScreen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -77,7 +78,7 @@ class Main extends StatelessWidget {
       supportedLocales: const [
         Locale('fa', '') //farsi
       ],
-      home: const MyCats(),
+      home: const SplashScreen(),
     );
   }
 }

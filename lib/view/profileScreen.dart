@@ -42,7 +42,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               Text(
                 'ویرایش عکس پروفایل',
-                style: textTheme.headline3,
+                style: textTheme.displaySmall,
               )
             ],
           ),
@@ -51,9 +51,9 @@ class ProfileScreen extends StatelessWidget {
           ),
           Text(
             'فاطمه امیری',
-            style: textTheme.headline4,
+            style: textTheme.headlineMedium,
           ),
-          Text('fatemehAmiri@gmail.com', style: textTheme.headline4),
+          Text('fatemehAmiri@gmail.com', style: textTheme.headlineMedium),
           const SizedBox(
             height: 40,
           ),
@@ -66,7 +66,7 @@ class ProfileScreen extends StatelessWidget {
               child: Center(
                   child: Text(
                 'مقالات مورد علاقه من',
-                style: textTheme.headline4,
+                style: textTheme.headlineMedium,
               )),
             ),
           ),
@@ -79,7 +79,7 @@ class ProfileScreen extends StatelessWidget {
               child: Center(
                   child: Text(
                 'پادکست های مورد علاقه من',
-                style: textTheme.headline4,
+                style: textTheme.headlineMedium,
               )),
             ),
           ),
@@ -92,7 +92,7 @@ class ProfileScreen extends StatelessWidget {
               child: Center(
                   child: Text(
                 'خروج از حساب کاربری',
-                style: textTheme.headline4,
+                style: textTheme.headlineMedium,
               )),
             ),
           ),

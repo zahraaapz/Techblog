@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
               ),
               Text(
                 'مشاهده داغ ترین نوشته ها',
-                style: textTheme.headline3,
+                style: textTheme.displaySmall,
               )
             ],
           ),
@@ -55,7 +55,7 @@ class HomeScreen extends StatelessWidget {
               ),
               Text(
                 'مشاهده داغ ترین پادکست ها',
-                style: textTheme.headline3,
+                style: textTheme.displaySmall,
               )
             ],
           ),
@@ -140,12 +140,12 @@ class HomeScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(blogModelList[index].writer,
-                                    style: textTheme.headline1),
+                                    style: textTheme.displayLarge),
                                 Row(
                                   children: [
                                     Text(
                                       blogModelList[index].views,
-                                      style: textTheme.headline1,
+                                      style: textTheme.displayLarge,
                                     ),
                                     const SizedBox(
                                       width: 3,
@@ -207,11 +207,11 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Text(
                     'ملیکا عزیزی -یک روز پیش',
-                    style: textTheme.headline1,
+                    style: textTheme.displayLarge,
                   ),
                   Text(
                     'like 255',
-                    style: textTheme.headline1,
+                    style: textTheme.displayLarge,
                   ),
                 ],
               ),
@@ -219,7 +219,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Text(
                     '  دوازده قدم برنامه نویسی یک دوره ی....',
-                    style: textTheme.headline2,
+                    style: textTheme.displayMedium,
                     textAlign: TextAlign.right,
                   )
                 ],
@@ -277,7 +277,7 @@ class TagList extends StatelessWidget {
                       ),
                       Text(
                         listTag[index].title,
-                        style: textTheme.headline1,
+                        style: textTheme.displayLarge,
                       )
                     ],
                   ),

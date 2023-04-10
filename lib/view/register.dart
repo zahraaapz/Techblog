@@ -27,7 +27,7 @@ class Register extends StatelessWidget {
               child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                      text: MyString.wellcom, style: textTheme.headline4)),
+                      text: MyString.wellcom, style: textTheme.headlineMedium)),
             ),
             ElevatedButton(
               onPressed: () {
@@ -64,7 +64,7 @@ class Register extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'لطفا ایمیلت وارد کن',
-                        style: textTheme.headline4,
+                        style: textTheme.headlineMedium,
                       ),
                     ),
                     Padding(
@@ -87,7 +87,7 @@ class Register extends StatelessWidget {
                           }),
                           child: Text(
                             'ادامه',
-                            style: textTheme.headline2,
+                            style: textTheme.displayMedium,
                           )),
                     )
                   ]),
@@ -119,7 +119,7 @@ class Register extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'کد را وارد کنید',
-                        style: textTheme.headline4,
+                        style: textTheme.headlineMedium,
                       ),
                     ),
                     const Padding(
@@ -141,7 +141,7 @@ class Register extends StatelessWidget {
                           }),
                           child: Text(
                             'ادامه',
-                            style: textTheme.headline2,
+                            style: textTheme.displayMedium,
                           )),
                     )
                   ]),

@@ -42,7 +42,7 @@ class _MainScreenState extends State<MainScreen> {
                     onTap: () {},
                     title: Text(
                       'profile karbar',
-                      style: textTheme.headline4,
+                      style: textTheme.headlineMedium,
                     ),
                   ),
                   const Divider(
@@ -52,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
                     onTap: () {},
                     title: Text(
                       'darbare veblog',
-                      style: textTheme.headline4,
+                      style: textTheme.headlineMedium,
                     ),
                   ),
                   const Divider(
@@ -62,7 +62,7 @@ class _MainScreenState extends State<MainScreen> {
                     onTap: () {},
                     title: Text(
                       'eshterak gozaritechblog',
-                      style: textTheme.headline4,
+                      style: textTheme.headlineMedium,
                     ),
                   ),
                   const Divider(
@@ -72,7 +72,7 @@ class _MainScreenState extends State<MainScreen> {
                     onTap: () {},
                     title: Text(
                       'techblog dr github',
-                      style: textTheme.headline4,
+                      style: textTheme.headlineMedium,
                     ),
                   ),
                   const Divider(

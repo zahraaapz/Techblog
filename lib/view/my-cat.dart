@@ -39,7 +39,7 @@ class _MyCatsState extends State<MyCats> {
                 ),
                 Text(
                   'تبریک میگم لطفا اطلاعات ثبت نام وارد کن',
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const SizedBox(
                   height: 16,
@@ -49,13 +49,13 @@ class _MyCatsState extends State<MyCats> {
                   decoration: InputDecoration(
                       alignLabelWithHint: true,
                       hintText: 'نام و نام خانوادگی',
-                      hintStyle: Theme.of(context).textTheme.headline4),
+                      hintStyle: Theme.of(context).textTheme.headlineMedium),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     'دسته بندی های مورد علاقه انتخاب کن',
-                    style: Theme.of(context).textTheme.headline4,
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 Padding(
@@ -141,7 +141,7 @@ class _MyCatsState extends State<MyCats> {
                                 ),
                                 Text(
                                   favouritelist[index].title,
-                                  style: textTheme.headline1,
+                                  style: textTheme.displayLarge,
                                 ),
                                 InkWell(
                                     onTap: () {
