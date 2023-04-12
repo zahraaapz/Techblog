@@ -1,20 +1,17 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/view/homeScreen.dart';
 import 'package:tech_blog/view/profileScreen.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
 
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
 
-class _MainScreenState extends State<MainScreen> {
-  var selectPage = 0;
+class MainScreen extends StatelessWidget {
+ RxInt selectPage = 0.obs;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
 
   @override
@@ -41,7 +38,7 @@ class _MainScreenState extends State<MainScreen> {
                   ListTile(
                     onTap: () {},
                     title: Text(
-                      'profile karbar',
+                      'پروفایل کاربر',
                       style: textTheme.headlineMedium,
                     ),
                   ),
@@ -51,7 +48,19 @@ class _MainScreenState extends State<MainScreen> {
                   ListTile(
                     onTap: () {},
                     title: Text(
-                      'darbare veblog',
+                      'درباره تکبلاگ',
+                      style: textTheme.headlineMedium,
+                    ),
+                  ),
+                  const Divider(
+                    color: Colors.grey,
+                  ),
+                  ListTile(
+                    onTap: () async {
+                     await Share.share('www.sasansafari.com');
+                    },
+                    title: Text(
+                      'اشتراک گزاری تکبلاگ',
                       style: textTheme.headlineMedium,
                     ),
                   ),
@@ -61,17 +70,7 @@ class _MainScreenState extends State<MainScreen> {
                   ListTile(
                     onTap: () {},
                     title: Text(
-                      'eshterak gozaritechblog',
-                      style: textTheme.headlineMedium,
-                    ),
-                  ),
-                  const Divider(
-                    color: Colors.grey,
-                  ),
-                  ListTile(
-                    onTap: () {},
-                    title: Text(
-                      'techblog dr github',
+                      'تکبلاگ در گیت هاب',
                       style: textTheme.headlineMedium,
                     ),
                   ),
@@ -104,19 +103,20 @@ class _MainScreenState extends State<MainScreen> {
           ),
           body: Stack(children: [
             Positioned.fill(
-                child: IndexedStack(
-              index: selectPage,
+                child: Obx(() =>         IndexedStack(
+              index: selectPage.value,
               children: [
                 HomeScreen(size: size, textTheme: textTheme),
                 ProfileScreen(size: size, textTheme: textTheme)
               ],
-            )),
+            ))
+        ),
             Buttonbar(
               size: size,
               changeScreen: (int value) {
-                setState(() {
-                  selectPage = value;
-                });
+              
+                  selectPage.value = value;
+               
               },
             )
           ])),
