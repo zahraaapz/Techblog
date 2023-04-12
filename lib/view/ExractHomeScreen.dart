@@ -2,9 +2,13 @@
 
 import 'package:flutter/material.dart';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tech_blog/component/color.dart';
+=======
+import 'package:tech_blog/color.dart';
+>>>>>>> parent of 30caa83 (Your branch is up to date with 'origin/master'.)
 =======
 import 'package:tech_blog/color.dart';
 >>>>>>> parent of 30caa83 (Your branch is up to date with 'origin/master'.)

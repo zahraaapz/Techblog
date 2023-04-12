@@ -22,8 +22,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Future.delayed(const Duration(seconds: 3)).then((value) {
 <<<<<<< HEAD
+<<<<<<< HEAD
       Navigator.pushReplacement(
           context, CupertinoPageRoute(builder: ((context) =>  MainScreen())));
+=======
+      Navigator.pushReplacement(context,
+          CupertinoPageRoute(builder: ((context) =>  MainScreen())));
+>>>>>>> parent of 30caa83 (Your branch is up to date with 'origin/master'.)
 =======
       Navigator.pushReplacement(context,
           CupertinoPageRoute(builder: ((context) =>  MainScreen())));

@@ -34,6 +34,10 @@ dependencies:
   flutter_spinkit: ^5.1.0
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 30caa83 (Your branch is up to date with 'origin/master'.)
 =======
 
 >>>>>>> parent of 30caa83 (Your branch is up to date with 'origin/master'.)
@@ -47,6 +51,7 @@ dependencies:
   validators: ^3.0.0
   get: ^4.6.5
   share_plus: ^6.3.2
+
 
 
 dev_dependencies:
