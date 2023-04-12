@@ -41,6 +41,8 @@ dependencies:
     sdk: flutter
   flutter_svg: ^1.1.5
   validators: ^3.0.0
+  get: ^4.6.5
+  share_plus: ^6.3.2
 
 dev_dependencies:
   flutter_test:
