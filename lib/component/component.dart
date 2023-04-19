@@ -9,7 +9,7 @@ class TechDivider extends StatelessWidget {
  TechDivider({
     Key? key,
     required this.size,
-
+ 
    
   }) : super(key: key);
 
@@ -20,14 +20,14 @@ class TechDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
  
-    var textTheme;
+
     return Column(
       children: [
         Divider(
             thickness: 1.5, indent: size.width / 6, endIndent: size.width / 6),
         Hashtag(
           index: index,
-          textTheme: textTheme,
+       
           size: size,
         ),
       ],
@@ -39,12 +39,12 @@ class Hashtag extends StatelessWidget {
   Hashtag(
       {Key? key,
       required this.index,
-      required this.textTheme,
+     
       required this.size})
       : super(key: key);
 
   int index;
-  var textTheme;
+ 
   var size;
 
   @override
@@ -83,14 +83,12 @@ class Hashtag extends StatelessWidget {
   }
 }
 
-mylounchUrl(String url)async{
+mylounchUrl(String url)  async {
 var uri=Uri.parse(url);
-
-if(await  canLaunchUrl(uri)){
+if(await canLaunchUrl(uri)){
 await launchUrl(uri);
 }
 else{
-
-  log('could not launch ${uri.toString()}');
+ log('could not launch ${uri.toString()}');
 }
 }
