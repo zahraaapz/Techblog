@@ -12,7 +12,9 @@ import 'package:tech_blog/view/profileScreen.dart';
 
 class MainScreen extends StatelessWidget {
  RxInt selectPage = 0.obs;
-  final GlobalKey<ScaffoldState> _key = GlobalKey();
+ final GlobalKey<ScaffoldState> _key = GlobalKey();
+
+  MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +22,9 @@ class MainScreen extends StatelessWidget {
     var textTheme = Theme.of(context).textTheme;
 
     return SafeArea(
-      key: _key,
+    
       child: Scaffold(
+        key: _key,
           drawer: Drawer(
             backgroundColor: Colors.white,
             child: Padding(
@@ -90,11 +93,12 @@ class MainScreen extends StatelessWidget {
               children: [
                 InkWell(
                     onTap: () {
-                      _key.currentState!.openDrawer();
+                      Scaffold.of(context).openDrawer();
+                     _key.currentState!.openDrawer();
                     },
                     child: const Icon(Icons.menu, color: Colors.black)),
                 Image(
-                  image: Assets.images.techblog,
+                  image: Assets.images.techblog.provider(),
                   height: size.height / 23,
                 ),
                 const Icon(Icons.search, color: Colors.black)
@@ -161,18 +165,18 @@ class Buttonbar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 IconButton(
-                  icon: ImageIcon(Assets.icon.home, color: Colors.white),
+                  icon: ImageIcon(Assets.icon.home.provider(), color: Colors.white),
                   onPressed: () {
                     changeScreen(0);
                   },
                 ),
                 IconButton(
-                  icon: ImageIcon(Assets.icon.write, color: Colors.white),
+                  icon: ImageIcon(Assets.icon.write.provider(), color: Colors.white),
                   onPressed: () {},
                 ),
                 IconButton(
                   icon: ImageIcon(
-                    Assets.icon.user,
+                    Assets.icon.user.provider(),
                     color: Colors.white,
                   ),
                   onPressed: () {
