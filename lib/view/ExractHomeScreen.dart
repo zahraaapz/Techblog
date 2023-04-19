@@ -9,6 +9,7 @@ import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/component/color.dart';
 
 import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/component/component.dart';
 
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/view/homeScreen.dart';
@@ -77,7 +78,9 @@ class MainScreen extends StatelessWidget {
                     color: Colors.grey,
                   ),
                   ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      mylounchUrl('https://github.com/zahraaapz');
+                    },
                     title: Text(
                       'تکبلاگ در گیت هاب',
                       style: textTheme.headlineMedium,
@@ -99,7 +102,7 @@ class MainScreen extends StatelessWidget {
               children: [
                 InkWell(
                     onTap: () {
-                      Scaffold.of(context).openDrawer();
+                  
                      _key.currentState!.openDrawer();
                     },
                     child: const Icon(Icons.menu, color: Colors.black)),

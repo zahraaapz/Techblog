@@ -32,7 +32,7 @@ packages:
       sha256: cb6d7f03e1de671e34607e909a7213e31d7752be4fb66a86d29fe1eb14bfb5cf
       url: "https://pub.dev"
     source: hosted
-  version: "1.1.1"
+    version: "1.1.1"
   collection:
     dependency: transitive
     description:
@@ -128,8 +128,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
-<<<<<<< HEAD
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -143,10 +141,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.6.5"
-=======
->>>>>>> parent of 30caa83 (Your branch is up to date with 'origin/master'.)
-=======
->>>>>>> parent of 30caa83 (Your branch is up to date with 'origin/master'.)
   intl:
     dependency: transitive
     description:
