@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tech_blog/color.dart';
+import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/model.dart';
 
 class TechDivider extends StatelessWidget {

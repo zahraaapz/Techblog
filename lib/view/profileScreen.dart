@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:tech_blog/color.dart';
+import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/component.dart';
 import '../gen/assets.gen.dart';
 

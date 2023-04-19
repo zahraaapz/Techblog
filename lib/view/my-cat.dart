@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tech_blog/color.dart';
+import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/component.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/model.dart';
@@ -85,7 +85,7 @@ class _MyCatsState extends State<MyCats> {
                               }
                             });
                           },
-                          child: Hashtag(
+                          child: hashtag(
                             size: size,
                             index: index,
                             textTheme: textTheme,
