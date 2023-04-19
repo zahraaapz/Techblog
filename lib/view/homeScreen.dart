@@ -1,9 +1,11 @@
-// ignore_for_file: file_names
+
 
 import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/model.dart';
 import 'package:flutter/material.dart';
+
 import '../gen/assets.gen.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -31,7 +33,7 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             children: [
               ImageIcon(
-                Assets.images.pen,
+                Assets.images.pen.provider(),
                 color: SolidColor.colorTitle,
               ),
               const SizedBox(
@@ -49,7 +51,7 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.only(right: size.width / 10),
           child: Row(
             children: [
-              ImageIcon(Assets.images.mic, color: SolidColor.colorTitle),
+              ImageIcon(Assets.images.mic.provider(), color: SolidColor.colorTitle),
               const SizedBox(
                 width: 8,
               ),
@@ -188,7 +190,7 @@ class HomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: Image(image: Assets.images.programming).image)),
+                  image: Image(image: Assets.images.programming.provider()).image)),
           foregroundDecoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               gradient: LinearGradient(

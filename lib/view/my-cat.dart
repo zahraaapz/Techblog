@@ -34,7 +34,7 @@ class _MyCatsState extends State<MyCats> {
                   height: 32,
                 ),
                 SvgPicture.network(
-                  Assets.images.techbot,
+                  Assets.images.techbot.path,
                   height: 100,
                 ),
                 Text(

@@ -1,18 +1,25 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TechDivider extends StatelessWidget {
-  const TechDivider({
+ TechDivider({
     Key? key,
     required this.size,
+
+   
   }) : super(key: key);
 
   final Size size;
+  int index=0;
+
 
   @override
   Widget build(BuildContext context) {
-    var index;
+ 
     var textTheme;
     return Column(
       children: [
@@ -36,12 +43,13 @@ class Hashtag extends StatelessWidget {
       required this.size})
       : super(key: key);
 
-  var index;
+  int index;
   var textTheme;
   var size;
 
   @override
   Widget build(BuildContext context) {
+     var textTheme = Theme.of(context).textTheme;
     return Container(
       height: 60,
       decoration: BoxDecoration(
@@ -66,11 +74,23 @@ class Hashtag extends StatelessWidget {
             ),
             Text(
               listTag[index].title,
-              style: textTheme.headline1,
+              style: textTheme.displayLarge,
             )
           ],
         ),
       ),
     );
   }
+}
+
+mylounchUrl(String url)async{
+var uri=Uri.parse(url);
+
+if(await  canLaunchUrl(uri)){
+await launchUrl(uri);
+}
+else{
+
+  log('could not launch ${uri.toString()}');
+}
 }

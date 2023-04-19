@@ -19,7 +19,7 @@ class Register extends StatelessWidget {
         child: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             SvgPicture.network(
-              Assets.images.techbot,
+              Assets.images.techbot.path,
               height: 100,
             ),
             Padding(
