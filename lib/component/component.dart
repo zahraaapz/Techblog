@@ -85,10 +85,19 @@ class Hashtag extends StatelessWidget {
 
 mylounchUrl(String url)  async {
 var uri=Uri.parse(url);
-if(await canLaunchUrl(uri)){
+// if(await canLaunchUrl(uri)){
+// await launchUrl(uri);
+// }
+// else{
+//  log('could not launch ${uri.toString()}');
+// }  not ok
+
+try{
 await launchUrl(uri);
+return true;
 }
-else{
- log('could not launch ${uri.toString()}');
+catch(e){
+log('could not launch ${uri.toString()}');
+return false;
 }
 }

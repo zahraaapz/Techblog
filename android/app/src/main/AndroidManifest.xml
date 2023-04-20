@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tech_blog">
     <uses-permission android:name="android.permission.INTERNET"/>
-    
+
    <application
         android:label="tech_blog"
         android:name="${applicationName}"
