@@ -42,6 +42,7 @@ dependencies:
   get: ^4.6.5
   share_plus: ^6.3.2
   url_launcher: ^6.1.10
+  dio: ^5.1.1
 
 
 

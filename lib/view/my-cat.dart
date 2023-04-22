@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/model.dart';
+import 'package:tech_blog/Model/model.dart';
 
 class MyCats extends StatefulWidget {
   const MyCats({super.key});

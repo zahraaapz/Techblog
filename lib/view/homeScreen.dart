@@ -1,7 +1,7 @@
 
 
 import 'package:tech_blog/component/color.dart';
-import 'package:tech_blog/model.dart';
+import 'package:tech_blog/Model/model.dart';
 import 'package:flutter/material.dart';
 
 import '../gen/assets.gen.dart';

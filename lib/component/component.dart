@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:tech_blog/component/color.dart';
-import 'package:tech_blog/model.dart';
+import 'package:tech_blog/Model/model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TechDivider extends StatelessWidget {
@@ -52,6 +52,7 @@ class Hashtag extends StatelessWidget {
      var textTheme = Theme.of(context).textTheme;
     return Container(
       height: 60,
+      width: 100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         gradient: LinearGradient(

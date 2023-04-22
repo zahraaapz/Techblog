@@ -14,6 +14,16 @@ class PodcastModel {
     required this.view,
     required this.createdAt,
   });
+
+  PodcastModel.fromJson(Map<String, dynamic> element) {
+    id=element['id'];
+    title=element['title'];
+    poster=element[' poster'];
+    publisher=element[' publisher'];
+    view=element[' view'];
+    createdAt=element[' created_At'];
+
+  }
 }
 
 List<PodcastModel> podcastlist = [
