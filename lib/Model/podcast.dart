@@ -1,3 +1,5 @@
+import 'package:tech_blog/component/api_constant.dart';
+
 class PodcastModel {
   String? id;
   String? title;
@@ -18,20 +20,12 @@ class PodcastModel {
   PodcastModel.fromJson(Map<String, dynamic> element) {
     id=element['id'];
     title=element['title'];
-    poster=element[' poster'];
-    publisher=element[' publisher'];
-    view=element[' view'];
-    createdAt=element[' created_At'];
+    poster=ApiCons.imageBaseUrl+element['poster'];
+    publisher=element['publisher'];
+    view=element['view'];
+    createdAt=element['created_At'];
 
   }
 }
 
-List<PodcastModel> podcastlist = [
-  PodcastModel(
-      id: '1',
-      title: 'lll',
-      poster: 'poster',
-      publisher: 'publisher',
-      view: 'view',
-      createdAt: 'created At'),
-];
+

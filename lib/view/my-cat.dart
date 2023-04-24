@@ -79,9 +79,9 @@ class _MyCatsState extends State<MyCats> {
                         return InkWell(
                           onTap: () {
                             setState(() {
-                              if (favouritelist
+                              if (favouritlist
                                   .contains(listTag[index].title)) {
-                                favouritelist.add(Model(title: listTag[index]));
+                                favouritlist.add(Model(title: listTag[index].toString()));
                               }
                             });
                           },
@@ -109,7 +109,7 @@ class _MyCatsState extends State<MyCats> {
                     width: double.infinity,
                     child: GridView.builder(
                       physics: const ClampingScrollPhysics(),
-                      itemCount: favouritelist.length,
+                      itemCount: favouritlist.length,
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
                       gridDelegate:
@@ -120,7 +120,7 @@ class _MyCatsState extends State<MyCats> {
                         childAspectRatio: 0.3,
                       ),
                       itemBuilder: (BuildContext context, int index) {
-                        favouritelist;
+                        favouritlist;
                         return Container(
                           height: 60,
                           decoration: BoxDecoration(
@@ -140,13 +140,13 @@ class _MyCatsState extends State<MyCats> {
                                   width: 8,
                                 ),
                                 Text(
-                                  favouritelist[index].title,
+                                  favouritlist[index].title,
                                   style: textTheme.displayLarge,
                                 ),
                                 InkWell(
                                     onTap: () {
                                       setState(() {
-                                        favouritelist.removeAt(index);
+                                        favouritlist.removeAt(index);
                                       });
                                     },
                                     child: const Icon(

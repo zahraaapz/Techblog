@@ -12,8 +12,11 @@ import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/component/component.dart';
 
 import 'package:tech_blog/gen/assets.gen.dart';
+import 'package:tech_blog/services/service.dart';
 import 'package:tech_blog/view/homeScreen.dart';
 import 'package:tech_blog/view/profileScreen.dart';
+
+import '../component/api_constant.dart';
 
 
 
@@ -25,6 +28,8 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    DioServices().getMethod(ApiCons.getHomeItem);
     var size = MediaQuery.of(context).size;
     var textTheme = Theme.of(context).textTheme;
 
@@ -116,7 +121,7 @@ class MainScreen extends StatelessWidget {
           ),
           body: Stack(children: [
             Positioned.fill(
-                child: Obx(() =>         IndexedStack(
+                child: Obx(() =>   IndexedStack(
               index: selectPage.value,
               children: [
                 HomeScreen(size: size, textTheme: textTheme),

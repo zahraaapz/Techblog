@@ -98,7 +98,7 @@ await launchUrl(uri);
 return true;
 }
 catch(e){
-log('could not launch ${uri.toString()}');
+log(e.toString());
 return false;
 }
 }
