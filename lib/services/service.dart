@@ -1,6 +1,7 @@
-import 'dart:math';
+
 
 import 'package:dio/dio.dart';
+import 'dart:developer';
 
 class DioServices{
 
@@ -17,8 +18,8 @@ class DioServices{
              method: 'Get'
 
       )
-    ).then((value) {
-
+).then((value) {
+log(value.toString());
       return value;
     });
 
