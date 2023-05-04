@@ -19,11 +19,11 @@ onInit(){
 super.onInit();
 getHomeItem();
 }
-getHomeItem()async{
+getHomeItem() async{
 
-var response=await DioServices().getMethod(ApiCons.getHomeItem);
+var response= await DioServices().getMethod(ApiCons.getHomeItem);
 
-if(response.stausCode==200){
+
   response.data['top_visited'].forEach((element){
 
     topVisitedList.add(
@@ -40,7 +40,7 @@ PodcastModel.fromJson(element));
   });
 
 }
-}
+
 
 
 
