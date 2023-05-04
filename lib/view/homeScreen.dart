@@ -1,5 +1,8 @@
 
 
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/Model/model.dart';
@@ -94,13 +97,31 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: size.height / 5.3,
+                      child: SizedBox(
+                         height: size.height / 5.3,
                         width: size.width / 2.4,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(18),
-                            image: DecorationImage(image: NetworkImage(homeScreenController.topPodcast[index].poster!))),
-                      ),
+                        child: CachedNetworkImage(
+                          imageUrl: homeScreenController.topPodcast[index].poster!,
+                          imageBuilder: (context, imageProvider) {
+                            return  Container(
+                         
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(18),
+                              image: DecorationImage(image: imageProvider,fit: BoxFit.cover),
+                              
+                              ),
+                        );
+                          },
+                                       placeholder: (context, url) {
+                                        return SpinKitCircle(
+                      color: SolidColor.primary,
+                      size: 32,
+                                         );
+                                       }, 
+                                       errorWidget: (context, url, error) {
+                                         return Icon(Icons.image_not_supported_outlined,color: SolidColor.divider,size: 50,);
+                                       },    ),
+                      )
                     ),
                      Text(homeScreenController.topPodcast[index].title!)
                   ],
@@ -127,7 +148,11 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Stack(children: [
+                      child:SizedBox(
+                        child:CachedNetworkImage(
+                          imageUrl:homeScreenController.topVisitedList[index].image!,
+                          imageBuilder: (context, imageProvider) {
+                            return  Stack(children: [
                         Container(
                           height: size.height / 5.3,
                           width: size.width / 2.4,
@@ -135,8 +160,7 @@ class HomeScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(16),
                               image: DecorationImage(
                                   fit: BoxFit.cover,
-                                  image: NetworkImage(
-                                     homeScreenController.topVisitedList[index].image!))),
+                                  image: imageProvider)),
                           foregroundDecoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
                               gradient: LinearGradient(
@@ -175,7 +199,19 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                      ]),
+                      ]);
+                      
+                          },
+                          errorWidget: (context, url, error) {
+                            return Icon(Icons.image_not_supported_outlined,color: SolidColor.divider,size: 50,);
+                          },
+                          placeholder: (context, url) {
+                            return SpinKitCircle(
+                      color: SolidColor.primary,
+                      size: 32,
+                                         );
+                          }, )
+                      ),
                     ),
                     SizedBox(
                       width: size.width / 2.4,
