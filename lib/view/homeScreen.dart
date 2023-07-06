@@ -33,52 +33,63 @@ class HomeScreen extends StatelessWidget {
 
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
-      child: Column(children: [
-        posterImage(),
-        Padding(
-          padding: const EdgeInsets.only(top: 10.0),
-          child: TagList(size: size, textTheme: textTheme),
-        ),
-        Padding(
-          padding:
-              EdgeInsets.only(top: 10.0, right: size.width / 10, bottom: 8),
-          child: Row(
-            children: [
-              ImageIcon(
-                Assets.images.pen.provider(),
-                color: SolidColor.colorTitle,
+      child: 
+   Obx(()=>
+           Padding(
+             padding: const EdgeInsets.all(1.0),
+             child:   homeScreenController.loading==false.obs?
+             Column(children: [
+              posterImage(),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: TagList(size: size, textTheme: textTheme),
               ),
+              Padding(
+                padding:
+                    EdgeInsets.only(top: 10.0, right: size.width / 10, bottom: 8),
+                child: Row(
+                  children: [
+                    ImageIcon(
+                      Assets.images.pen.provider(),
+                      color: SolidColor.colorTitle,
+                    ),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      'مشاهده داغ ترین نوشته ها',
+                      style: textTheme.displaySmall,
+                    )
+                  ],
+                ),
+              ),
+              blogList(),
+              Padding(
+                padding: EdgeInsets.only(right: size.width / 10),
+                child: Row(
+                  children: [
+                    ImageIcon(Assets.images.mic.provider(), color: SolidColor.colorTitle),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      'مشاهده داغ ترین پادکست ها',
+                      style: textTheme.displaySmall,
+                    )
+                  ],
+                ),
+              ),
+              podcastList(),
               const SizedBox(
-                width: 8,
-              ),
-              Text(
-                'مشاهده داغ ترین نوشته ها',
-                style: textTheme.displaySmall,
+                height: 60,
               )
-            ],
-          ),
-        ),
-        blogList(),
-        Padding(
-          padding: EdgeInsets.only(right: size.width / 10),
-          child: Row(
-            children: [
-              ImageIcon(Assets.images.mic.provider(), color: SolidColor.colorTitle),
-              const SizedBox(
-                width: 8,
-              ),
-              Text(
-                'مشاهده داغ ترین پادکست ها',
-                style: textTheme.displaySmall,
-              )
-            ],
-          ),
-        ),
-        podcastList(),
-        const SizedBox(
-          height: 60,
-        )
-      ]),
+                   ]):const SpinKitCircle(
+                      color: SolidColor.primary,
+                      size: 32,
+                                         ),
+           ),
+         )
+      
     );
   }
 
@@ -113,13 +124,13 @@ class HomeScreen extends StatelessWidget {
                         );
                           },
                                        placeholder: (context, url) {
-                                        return SpinKitCircle(
+                                        return const SpinKitCircle(
                       color: SolidColor.primary,
                       size: 32,
                                          );
                                        }, 
                                        errorWidget: (context, url, error) {
-                                         return Icon(Icons.image_not_supported_outlined,color: SolidColor.divider,size: 50,);
+                                         return const Icon(Icons.image_not_supported_outlined,color: SolidColor.divider,size: 50,);
                                        },    ),
                       )
                     ),
@@ -169,7 +180,7 @@ class HomeScreen extends StatelessWidget {
                                   end: Alignment.topCenter)),
                         ),
                         Positioned(
-                          bottom: 8,
+                          bottom: 0,
                           child: SizedBox(
                             width: size.width / 2.4,
                             child: Padding(
@@ -203,10 +214,10 @@ class HomeScreen extends StatelessWidget {
                       
                           },
                           errorWidget: (context, url, error) {
-                            return Icon(Icons.image_not_supported_outlined,color: SolidColor.divider,size: 50,);
+                            return const Icon(Icons.image_not_supported_outlined,color: SolidColor.divider,size: 50,);
                           },
                           placeholder: (context, url) {
-                            return SpinKitCircle(
+                            return const SpinKitCircle(
                       color: SolidColor.primary,
                       size: 32,
                                          );
@@ -232,48 +243,50 @@ class HomeScreen extends StatelessWidget {
   Stack posterImage() {
     return Stack(
       children: [
-        Container(
-          width: size.width / 1.25,
-          height: size.height / 4.2,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: Image(image: Assets.images.programming.provider()).image)),
-          foregroundDecoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              gradient: LinearGradient(
-                  colors: GradientColor.poster,
-                  end: Alignment.bottomCenter,
-                  begin: Alignment.topCenter)),
+     
+         Container(    
+             width: size.width / 1.25,
+            height: size.height / 4.2,
+            foregroundDecoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                gradient: LinearGradient(
+                    colors: GradientColor.poster,
+                    end: Alignment.bottomCenter,
+                    begin: Alignment.topCenter)),
+            child:CachedNetworkImage(
+              imageUrl: homeScreenController.poster.value.image!,
+              imageBuilder: (context, imageProvider) =>Container(
+                
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: imageProvider))
+              ) ,
+              placeholder: (context, url) => const SpinKitCircle(
+                      color: SolidColor.primary,
+                      size: 32,
+                                         ),
+        errorWidget: (context, url, error) => const Icon(Icons.image_not_supported_outlined,color: SolidColor.divider,size: 50,),    )
+            
+      ,
+                     
         ),
+      
+      
+            
+        
         Positioned(
           bottom: 8,
           left: 0,
           right: size.width / 10,
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    'ملیکا عزیزی -یک روز پیش',
-                    style: textTheme.displayLarge,
-                  ),
-                  Text(
-                    'like 255',
-                    style: textTheme.displayLarge,
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Text(
-                    '  دوازده قدم برنامه نویسی یک دوره ی....',
-                    style: textTheme.displayMedium,
-                    textAlign: TextAlign.right,
-                  )
-                ],
+          
+              Text(
+               homeScreenController.poster.value.title!, 
+               style: textTheme.displayMedium,
+                textAlign: TextAlign.right,
               )
             ],
           ),
