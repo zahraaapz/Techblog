@@ -1,3 +1,5 @@
+import 'package:tech_blog/component/api_constant.dart';
+
 class Poster {
   String? id;
   String? title;
@@ -5,16 +7,16 @@ class Poster {
 
 
   Poster({
-    required this.id,
-    required this.title,
-    required this.image,
+   this.id,
+    this.title,
+    this.image,
 
   });
 
   Poster.fromJson(Map<String, dynamic> element) {
     id=element['id'];
     title=element['title'];
-    image=element['image'];
+    image=ApiCons.imageBaseUrl+element['image'];
 
 
   }

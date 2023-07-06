@@ -8,11 +8,11 @@ import '../component/api_constant.dart';
 
 class HomeScreenController extends GetxController{
 
-   Rx<Poster>?poster;
+  Rx<Poster>poster=Poster().obs;
    RxList taglist=RxList();
    RxList<ArticleModel> topVisitedList=RxList();
    RxList <PodcastModel>topPodcast=RxList();
-
+RxBool loading=false.obs;
 
 @override
 onInit(){
@@ -20,9 +20,10 @@ super.onInit();
 getHomeItem();
 }
 getHomeItem() async{
-
+loading.value=true;
 var response= await DioServices().getMethod(ApiCons.getHomeItem);
 
+ poster.value=Poster.fromJson(response.data['poster']);
 
   response.data['top_visited'].forEach((element){
 
@@ -38,7 +39,7 @@ PodcastModel.fromJson(element));
 
 
   });
-
+ loading.value=false;
 }
 
 
