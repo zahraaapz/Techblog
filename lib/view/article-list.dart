@@ -1,7 +1,11 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
 import 'package:tech_blog/component/color.dart';
+
+import '../controller/article_controller.dart';
 
 class ArticleList extends StatelessWidget {
   final TextTheme textTheme;
@@ -10,6 +14,8 @@ class ArticleList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    ArticleScreenController articleScreenController=Get.put(ArticleScreenController());
     return SafeArea(child: Scaffold(
       
      
@@ -33,7 +39,7 @@ class ArticleList extends StatelessWidget {
           leading:
           Padding(
             padding: const EdgeInsets.only(right:8.0),
-            child: Container(height: 40,decoration: 
+            child: Container(height: 40,width: 40,decoration: 
             BoxDecoration(shape: BoxShape.circle,color: 
             SolidColor.primary.withBlue(100)),child: Icon(Icons.arrow_back),),
           ) ,
@@ -44,6 +50,16 @@ class ArticleList extends StatelessWidget {
           
           ),
       ),
-    ),),);
+    ),
+    
+    body: SizedBox(child: ListView.builder(
+      itemCount:articleScreenController.articleList.length ,
+      itemBuilder:(context, index) {
+      return Text(articleScreenController.articleList[index].title!);
+    },)),),
+    
+    
+    
+    );
   }
 }
