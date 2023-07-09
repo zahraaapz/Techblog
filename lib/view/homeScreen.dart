@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                     posterImage(),
                     Padding(
                       padding: const EdgeInsets.only(top: 10.0),
-                      child: TagList(size: size, textTheme: textTheme),
+                      child: TagList( size, textTheme),
                     ),
                     Padding(
                       padding: EdgeInsets.only(
@@ -276,14 +276,14 @@ class HomeScreen extends StatelessWidget {
         ),
         Positioned(
           bottom: 8,
-          left: 0,
-          right: size.width / 10,
+         
+          
           child: Column(
             children: [
               Text(
                 homeScreenController.poster.value.title!,
                 style: textTheme.displayMedium,
-                textAlign: TextAlign.right,
+                textAlign: TextAlign.center,
               )
             ],
           ),
@@ -293,18 +293,9 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class TagList extends StatelessWidget {
-  const TagList({
-    Key? key,
-    required this.size,
-    required this.textTheme,
-  }) : super(key: key);
 
-  final Size size;
-  final TextTheme textTheme;
 
-  @override
-  Widget build(BuildContext context) {
+  TagList( size,textTheme) {
     return SizedBox(
         height: 60,
         child: ListView.builder(
@@ -337,7 +328,7 @@ class TagList extends StatelessWidget {
                         width: 8,
                       ),
                       Text(
-                        listTag[index].title,
+                        Get.find<HomeScreenController>().taglist[index].title!,
                         style: textTheme.displayLarge,
                       )
                     ],
@@ -348,4 +339,3 @@ class TagList extends StatelessWidget {
           },
         ));
   }
-}
