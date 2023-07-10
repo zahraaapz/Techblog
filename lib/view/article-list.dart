@@ -1,11 +1,15 @@
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/view/single.dart';
 
 import '../controller/article_controller.dart';
+import '../controller/article_controller_single.dart';
 
 class ArticleList extends StatelessWidget {
   final TextTheme textTheme;
@@ -14,8 +18,9 @@ class ArticleList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ArticleScreenController articleScreenController =
-        Get.put(ArticleScreenController());
+    ArticleScreenController articleScreenController = Get.put(ArticleScreenController());
+    SingleArticleScreenController singleArticleScreenController = Get.put(SingleArticleScreenController());
+
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
@@ -57,63 +62,71 @@ class ArticleList extends StatelessWidget {
           () => ListView.builder(
             itemCount: articleScreenController.articleList.length,
             itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child:
-                    Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                  SizedBox(
-                      width: Get.width / 3,
-                      height: Get.height / 6,
-                      child: CachedNetworkImage(
-                        imageUrl:
-                            articleScreenController.articleList[index].image!,
-                        imageBuilder: (context, imageProvider) {
-                          return Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
-                                image: DecorationImage(
-                                    image: imageProvider, fit: BoxFit.cover)),
-                          );
-                        },
-                        placeholder: (context, url) => const SpinKitCircle(
-                          color: SolidColor.primary,
-                          size: 32,
-                        ),
-                        errorWidget: (context, url, error) => const Icon(
-                          Icons.image_not_supported_outlined,
-                          color: SolidColor.divider,
-                          size: 50,
-                        ),
-                      )),
-                  const SizedBox(
-                    width: 12,
-                  ),
-                  SizedBox(
-                      width: Get.width / 2,
-                      child: Column(children: [
-                        Text(
-                          articleScreenController.articleList[index].title!,
-                          //overflow: TextOverflow.ellipsis,maxLines: 2,
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(articleScreenController
-                                .articleList[index].author!),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            Text(
-                              '${articleScreenController.articleList[index].view!} بازدید ',
-                              style: textTheme.bodyMedium,
-                            )
-                          ],
-                        )
-                      ]))
-                ]),
+              return GestureDetector(
+
+                onTap: () {
+                 // Get.to(Single(),arguments: [articleScreenController.articleList[index].id]);
+                  Get.to(Single());
+                  singleArticleScreenController.id.value=int.parse(articleScreenController.articleList[index].id.toString());
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child:
+                      Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                    SizedBox(
+                        width: Get.width / 3,
+                        height: Get.height / 6,
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              articleScreenController.articleList[index].image!,
+                          imageBuilder: (context, imageProvider) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16),
+                                  image: DecorationImage(
+                                      image: imageProvider, fit: BoxFit.cover)),
+                            );
+                          },
+                          placeholder: (context, url) => const SpinKitCircle(
+                            color: SolidColor.primary,
+                            size: 32,
+                          ),
+                          errorWidget: (context, url, error) => const Icon(
+                            Icons.image_not_supported_outlined,
+                            color: SolidColor.divider,
+                            size: 50,
+                          ),
+                        )),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    SizedBox(
+                        width: Get.width / 2,
+                        child: Column(children: [
+                          Text(
+                            articleScreenController.articleList[index].title!,
+                            //overflow: TextOverflow.ellipsis,maxLines: 2,
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(articleScreenController
+                                  .articleList[index].author!),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              Text(
+                                '${articleScreenController.articleList[index].view!} بازدید ',
+                                style: textTheme.bodyMedium,
+                              )
+                            ],
+                          )
+                        ]))
+                  ]),
+                ),
               );
             },
           ),

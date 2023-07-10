@@ -44,6 +44,7 @@ dependencies:
   url_launcher: ^6.1.10
   dio: ^5.1.1
   cached_network_image: ^3.2.3
+  flutter_widget_from_html: ^0.9.1
 
 
 
