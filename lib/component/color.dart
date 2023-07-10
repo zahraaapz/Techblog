@@ -34,5 +34,9 @@ class GradientColor {
     const Color.fromARGB(0, 0, 0, 0),
     const Color.fromARGB(195, 72, 20, 88),
     const Color.fromARGB(255, 280, 20, 81),
+  ];  static List<Color> singleAppbar = [
+    
+    const Color.fromARGB(255, 46, 3, 71),
+    const Color.fromARGB(0, 255, 255, 255),
   ];
 }

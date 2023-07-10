@@ -102,3 +102,24 @@ log(e.toString());
 return false;
 }
 }
+
+
+TextTheme textStyle=const TextTheme(
+   displayLarge: TextStyle(
+                  fontSize: 13,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w300),
+              displaySmall: TextStyle(
+                  color: SolidColor.colorTitle,
+                  fontWeight: FontWeight.w300,
+                  fontSize: 14),
+              headlineMedium: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w300,
+                  fontSize: 14),
+            
+              displayMedium: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700)
+);

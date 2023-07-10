@@ -1,8 +1,12 @@
+import 'dart:math';
+
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/view/article-list.dart';
+import 'package:tech_blog/view/single.dart';
 
 import 'package:tech_blog/view/splashScreen.dart';
 
@@ -53,23 +57,7 @@ class Main extends StatelessWidget {
             })),
           ),
           fontFamily: 'dana',
-          textTheme: const TextTheme(
-              displayLarge: TextStyle(
-                  fontSize: 13,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w300),
-              displaySmall: TextStyle(
-                  color: SolidColor.colorTitle,
-                  fontWeight: FontWeight.w300,
-                  fontSize: 14),
-              headlineMedium: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w300,
-                  fontSize: 14),
-              displayMedium: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700))),
+          textTheme: textStyle),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
@@ -79,7 +67,7 @@ class Main extends StatelessWidget {
       supportedLocales: const [
         Locale('fa', '') //farsi
       ],
-      home:  ArticleList(textTheme: textTheme,),
+      home: Single(),
     );
   }
 }
