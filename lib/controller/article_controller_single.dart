@@ -1,9 +1,4 @@
 import 'package:get/get.dart';
-import 'package:tech_blog/Model/article.dart';
-
-import 'package:tech_blog/services/service.dart';
-
-import '../component/api_constant.dart';
 
 class SingleArticleScreenController extends GetxController {
 

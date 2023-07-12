@@ -6,9 +6,7 @@ import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tech_blog/component/color.dart';
 
-import 'package:tech_blog/component/color.dart';
 
-import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/component/component.dart';
 
 import 'package:tech_blog/gen/assets.gen.dart';

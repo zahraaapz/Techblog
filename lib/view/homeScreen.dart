@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/component/color.dart';
@@ -8,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:tech_blog/controller/home_screen_controller.dart';
 
 import '../gen/assets.gen.dart';
+
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import '../controller/article_controller.dart';
+
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:get/get.dart';
+
 import 'package:tech_blog/component/color.dart';
 
 class Single extends StatelessWidget {
@@ -86,13 +86,16 @@ class Single extends StatelessWidget {
           child: Text('m',style:textStyle.bodyMedium),
         ),
         
-        Row(children:[
-
-            Image.asset(Assets.images.avatar.path,height:50),
-           const SizedBox(width:16),
-
- Text('m',style:textStyle.bodyMedium),
-        ]),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(children:[
+        
+              Image.asset(Assets.images.avatar.path,height:50),
+             const SizedBox(width:16),
+        
+         Text('m',style:textStyle.bodyMedium),
+          ]),
+        ),
        HtmlWidget(
         'TTTTTTTT',
         onLoadingBuilder: (context, element, loadingProgress) => const SpinKitCircle(
