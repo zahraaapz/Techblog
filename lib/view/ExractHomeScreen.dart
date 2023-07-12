@@ -19,7 +19,7 @@ import '../component/api_constant.dart';
 
 
 class MainScreen extends StatelessWidget {
- RxInt selectPage = 0.obs;
+  final RxInt selectPage = 0.obs;
  final GlobalKey<ScaffoldState> _key = GlobalKey();
 
   MainScreen({super.key});

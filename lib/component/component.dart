@@ -6,7 +6,7 @@ import 'package:tech_blog/Model/model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TechDivider extends StatelessWidget {
- TechDivider({
+ const TechDivider({
     Key? key,
     required this.size,
  
@@ -14,7 +14,7 @@ class TechDivider extends StatelessWidget {
   }) : super(key: key);
 
   final Size size;
-  int index=0;
+ final int index=0;
 
 
   @override
@@ -36,16 +36,16 @@ class TechDivider extends StatelessWidget {
 }
 
 class Hashtag extends StatelessWidget {
-  Hashtag(
+  const Hashtag(
       {Key? key,
       required this.index,
      
       required this.size})
       : super(key: key);
 
-  int index;
+ final int index;
  
-  var size;
+ final Size size;
 
   @override
   Widget build(BuildContext context) {

@@ -16,10 +16,10 @@ class HomeScreen extends StatelessWidget {
     required this.textTheme,
   }) : super(key: key);
 
-  final Size size;
-  final TextTheme textTheme;
+ final Size size;
+ final TextTheme textTheme;
 
-  HomeScreenController homeScreenController = Get.put(HomeScreenController());
+ final HomeScreenController homeScreenController = Get.put(HomeScreenController());
   @override
   Widget build(BuildContext context) {
     homeScreenController.getHomeItem();
