@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
+
 import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/view/single.dart';
 
@@ -14,7 +15,7 @@ import '../controller/article_controller_single.dart';
 class ArticleList extends StatelessWidget {
   final TextTheme textTheme;
 
-  ArticleList({super.key, required this.textTheme});
+  const ArticleList({super.key, required this.textTheme});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class ArticleList extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(60),
+          preferredSize: const Size.fromHeight(60),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: AppBar(
@@ -51,7 +52,7 @@ class ArticleList extends StatelessWidget {
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: SolidColor.primary.withBlue(100)),
-                  child: Icon(Icons.arrow_back),
+                  child: const Icon(Icons.arrow_back),
                 ),
               ),
             ),
@@ -66,9 +67,15 @@ class ArticleList extends StatelessWidget {
 
                 onTap: () {
                  // Get.to(Single(),arguments: [articleScreenController.articleList[index].id]);
-                  Get.to(Single());
-                  singleArticleScreenController.id.value=int.parse(articleScreenController.articleList[index].id.toString());
-                },
+      
+              singleArticleScreenController.id.value=int.parse(articleScreenController.articleList[index].id!);
+         //  singleArticleScreenController.getarticleInfo(int.parse(articleScreenController.articleList[index].id!));
+                    
+               
+                      
+                     Get.to(()=> Single());   
+                 
+              },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child:
