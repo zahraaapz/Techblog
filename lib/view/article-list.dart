@@ -61,6 +61,7 @@ class ArticleList extends StatelessWidget {
         body: SizedBox(
             child: Obx(
           () => ListView.builder(
+              physics:const BouncingScrollPhysics(),
             itemCount: articleScreenController.articleList.length,
             itemBuilder: (context, index) {
               return GestureDetector(

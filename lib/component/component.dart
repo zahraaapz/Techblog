@@ -117,6 +117,11 @@ TextTheme textStyle=const TextTheme(
                   color: Colors.black,
                   fontWeight: FontWeight.w300,
                   fontSize: 14),
+                  headlineLarge: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                  ),
             
               displayMedium: TextStyle(
                   fontSize: 16,

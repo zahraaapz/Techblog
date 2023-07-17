@@ -1,6 +1,6 @@
 import 'package:tech_blog/component/api_constant.dart';
 
-class ArticleInfo{
+class ArticleInfoModel{
 
  String ?id;
  String ?title;
@@ -13,13 +13,10 @@ class ArticleInfo{
  String ?status;
  String ?createdAt;
  bool ?  isFavorite;
-ArticleInfo(
+ArticleInfoModel(
 
 
-
-
-
-  [ this.id,
+  { this.id,
    this.image,
    this.title,
    this.catId,
@@ -27,7 +24,7 @@ ArticleInfo(
   this.author,
   this.view,
    this.status,
-  this.createdAt,]
+  this.createdAt,}
 
 
    
@@ -36,7 +33,7 @@ ArticleInfo(
    
    );
 
-ArticleInfo.fromJson(Map<String,dynamic> element){
+ArticleInfoModel.fromJson(Map<String,dynamic> element){
 
  id=element['info']['id'];
  title=element['info']['title'];
