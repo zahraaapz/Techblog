@@ -4,7 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/component/component.dart';
-import 'package:tech_blog/view/article-list.dart';
+
+import 'package:tech_blog/view/splashScreen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -58,7 +59,7 @@ class Main extends StatelessWidget {
 
     locale: const Locale('fa'),
       
-      home:  ArticleList(textTheme: textStyle,),
+      home:  SplashScreen(),
     );
   }
 }

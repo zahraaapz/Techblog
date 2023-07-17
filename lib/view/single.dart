@@ -22,6 +22,7 @@ class Single extends StatefulWidget {
 class _SingleState extends State<Single> {
 
     SingleArticleScreenController singleArticleScreenController = Get.put(SingleArticleScreenController());
+   ArticleScreenController articleScreenController = Get.put(ArticleScreenController());
 
   @override
   void initState(){
@@ -168,98 +169,106 @@ singleArticleScreenController.getArticleInfo();
             scrollDirection: Axis.horizontal,
             itemCount: singleArticleScreenController.relatedlist.length,
             itemBuilder: ((context, index) {
-              return Padding(
-                padding:
-                    EdgeInsets.only(right:8,),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                          child: CachedNetworkImage(
-                        imageUrl:
-                            singleArticleScreenController.relatedlist[index].image!,
-                        imageBuilder: (context, imageProvider) {
-                          return Stack(children: [
-                            Container(
-                              height: Get.height / 5.3,
-                              width: Get.width / 2.4,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  image: DecorationImage(
-                                      fit: BoxFit.cover, image: imageProvider)),
-                              foregroundDecoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  gradient: LinearGradient(
-                                      colors: GradientColor.blog,
-                                      begin: Alignment.bottomCenter,
-                                      end: Alignment.topCenter)),
-                            ),
-                            Positioned(
-                              bottom: 0,
-                              child: SizedBox(
+              return InkWell(
+
+                onTap: () async{
+
+                  singleArticleScreenController.id.value=int.parse(singleArticleScreenController.relatedlist[index].id!);
+                  Get.to(Single());
+                },
+                child: Padding(
+                  padding:
+                      EdgeInsets.only(right:8,),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                            child: CachedNetworkImage(
+                          imageUrl:
+                              singleArticleScreenController.relatedlist[index].image!,
+                          imageBuilder: (context, imageProvider) {
+                            return Stack(children: [
+                              Container(
+                                height: Get.height / 5.3,
                                 width: Get.width / 2.4,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 8.0, right: 8),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                       singleArticleScreenController  
-                                              .relatedlist[index].author==null?'unknown':
-                                              singleArticleScreenController.relatedlist[index].author!,
-                                          style: textStyle.displayLarge),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            singleArticleScreenController
-                                                .relatedlist[index].view!,
-                                            style: textStyle.displayLarge,
-                                          ),
-                                          const SizedBox(
-                                            width: 3,
-                                          ),
-                                          const Icon(
-                                            Icons.remove_red_eye,
-                                            color: Colors.white,
-                                          ),
-                                        ],
-                                      )
-                                    ],
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover, image: imageProvider)),
+                                foregroundDecoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    gradient: LinearGradient(
+                                        colors: GradientColor.blog,
+                                        begin: Alignment.bottomCenter,
+                                        end: Alignment.topCenter)),
+                              ),
+                              Positioned(
+                                bottom: 0,
+                                child: SizedBox(
+                                  width: Get.width / 2.4,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 8.0, right: 8),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                         singleArticleScreenController  
+                                                .relatedlist[index].author==null?'unknown':
+                                                singleArticleScreenController.relatedlist[index].author!,
+                                            style: textStyle.displayLarge),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              singleArticleScreenController
+                                                  .relatedlist[index].view!,
+                                              style: textStyle.displayLarge,
+                                            ),
+                                            const SizedBox(
+                                              width: 3,
+                                            ),
+                                            const Icon(
+                                              Icons.remove_red_eye,
+                                              color: Colors.white,
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ]);
-                        },
-                        errorWidget: (context, url, error) {
-                          return const Icon(
-                            Icons.image_not_supported_outlined,
-                            color: SolidColor.divider,
-                            size: 50,
-                          );
-                        },
-                        placeholder: (context, url) {
-                          return const SpinKitCircle(
-                            color: SolidColor.primary,
-                            size: 32,
-                          );
-                        },
-                      )),
-                    ),
-                    SizedBox(
-                      width: Get.width / 2.4,
-                      child: Text(
-                        
-
-                        singleArticleScreenController.relatedlist[index].title!,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
+                            ]);
+                          },
+                          errorWidget: (context, url, error) {
+                            return const Icon(
+                              Icons.image_not_supported_outlined,
+                              color: SolidColor.divider,
+                              size: 50,
+                            );
+                          },
+                          placeholder: (context, url) {
+                            return const SpinKitCircle(
+                              color: SolidColor.primary,
+                              size: 32,
+                            );
+                          },
+                        )),
                       ),
-                    )
-                  ],
+                      SizedBox(
+                        width: Get.width / 2.4,
+                        child: Text(
+                          
+              
+                          singleArticleScreenController.relatedlist[index].title!,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               );
             })),
@@ -279,8 +288,8 @@ singleArticleScreenController.getArticleInfo();
             itemBuilder: (BuildContext context, int index) {
               return InkWell(
         
-                onTap: () async{
-                  await Get.find<ArticleScreenController>().getArticleWithTagesId(singleArticleScreenController.taglist[index].id!);
+                onTap: () {
+                   articleScreenController.getArticleWithTagesId(singleArticleScreenController.taglist[index].id!);
                Get.to(ArticleList(textTheme:textStyle)) ;      },
                 child: Padding(
                   padding: EdgeInsets.only(
