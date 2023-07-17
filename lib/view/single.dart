@@ -148,12 +148,9 @@ singleArticleScreenController.getArticleInfo();
 
                SizedBox(height: 20,),
                
-     singleArticleScreenController.taglist[0].title==null? const SpinKitCircle(
-                              color: SolidColor.primary,
-                              size: 32,
-                            ): TagList(),
+               TagList(),
                SizedBox(height: 20,),
-          simillar()    ],
+                simillar()    ],
           ),
         ),
       ),
@@ -275,37 +272,39 @@ singleArticleScreenController.getArticleInfo();
   TagList( ) {
     return SizedBox(
         height: 35,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: singleArticleScreenController.taglist.length,
-          itemBuilder: (BuildContext context, int index) {
-            return InkWell(
-
-              onTap: () async{
-                await Get.find<ArticleScreenController>().getArticleWithTagesId(singleArticleScreenController.taglist[index].id!);
-       Get.to(ArticleList(textTheme:textStyle)) ;      },
-              child: Padding(
-                padding: EdgeInsets.only(
-                  right: 12),
-                child: Container(
-                  height: 30,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(24),
-                  color: Colors.grey,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(8, 8.0, 8, 8),
-                    child: 
-                    
-                        Text(
-                         singleArticleScreenController.taglist[index].title!,
-                          style: textStyle.displayLarge,
-                        )
-                     
+        child: Obx(()=>
+          ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: singleArticleScreenController.taglist.length,
+            itemBuilder: (BuildContext context, int index) {
+              return InkWell(
+        
+                onTap: () async{
+                  await Get.find<ArticleScreenController>().getArticleWithTagesId(singleArticleScreenController.taglist[index].id!);
+               Get.to(ArticleList(textTheme:textStyle)) ;      },
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    right: 12),
+                  child: Container(
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(24),
+                    color: Colors.grey,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 8.0, 8, 8),
+                      child: 
+                      
+                          Text(
+                           singleArticleScreenController.taglist[index].title!,
+                            style: textStyle.displayLarge,
+                          )
+                       
+                    ),
                   ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ));
   }}

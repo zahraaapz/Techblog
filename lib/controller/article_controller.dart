@@ -33,7 +33,7 @@ RxList<ArticleModel> articleList = RxList();
    getArticleWithTagesId(String id) async {
     articleList.clear();
     loading.value = true;
-    print('$id');
+    
     var response = await DioServices().getMethod(ApiCons.baseUrl+'article/get.php?command=get_articles_with_tag_id&tag_id=$id&user_id=');
 
     response.data.forEach((element) {
