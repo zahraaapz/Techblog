@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/controller/article_controller.dart';
 import 'package:tech_blog/controller/article_controller_single.dart';
@@ -79,7 +80,7 @@ singleArticleScreenController.getArticleInfo();
                               end: Alignment.bottomCenter,
                               begin: Alignment.topCenter,
                               colors: GradientColor.singleAppbar)),
-                      child: const Row(
+                      child:  Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           SizedBox(
@@ -99,10 +100,15 @@ singleArticleScreenController.getArticleInfo();
                           SizedBox(
                             width: 20,
                           ),
-                          Icon(
-                            Icons.share,
-                            color: Colors.white,
-                            size: 24,
+                          InkWell(
+                            onTap: () {
+                              Share.share('');
+                            },
+                            child: Icon(
+                              Icons.share,
+                              color: Colors.white,
+                              size: 24,
+                            ),
                           ),
                           SizedBox(
                             width: 20,

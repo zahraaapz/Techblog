@@ -10,6 +10,7 @@ import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/component/component.dart';
 
 import 'package:tech_blog/gen/assets.gen.dart';
+import 'package:tech_blog/register/register.dart';
 import 'package:tech_blog/services/service.dart';
 import 'package:tech_blog/view/homeScreen.dart';
 import 'package:tech_blog/view/profileScreen.dart';
@@ -184,7 +185,10 @@ class Buttonbar extends StatelessWidget {
                 ),
                 IconButton(
                   icon: ImageIcon(Assets.icon.write.provider(), color: Colors.white),
-                  onPressed: () {},
+                  onPressed: () {
+
+                    Get.to(Register());
+                  },
                 ),
                 IconButton(
                   icon: ImageIcon(
