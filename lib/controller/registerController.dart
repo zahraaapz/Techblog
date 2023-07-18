@@ -31,7 +31,7 @@ Map<String,dynamic>map={
   'command':'verify',
 };
 
-  var response=DioServices().postMethod(map, '${ApiCons.baseUrl}register/action.php');
+  var response=  await  DioServices().postMethod(map, '${ApiCons.baseUrl}register/action.php');
 print(response);
 }
 
