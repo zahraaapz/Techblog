@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/Model/article.dart';
 import 'package:tech_blog/Model/podcast.dart';
@@ -37,6 +38,6 @@ class HomeScreenController extends GetxController {
     });
     loading.value = false;
 
-    print(loading.value);
+    debugPrint(loading.value.toString());
   }
 }

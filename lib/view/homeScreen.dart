@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                     posterImage(),
                     Padding(
                       padding: const EdgeInsets.only(top: 10.0),
-                      child: TagList( size, textTheme),
+                      child: tagListHome( size, textTheme),
                     ),
                     Padding(
                       padding: EdgeInsets.only(
@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                       onTap: () async{
                         
                       
-                        Get.to(Single());
+                        Get.to(const Single());
                       },
                       
                       child: blogList()),
@@ -174,7 +174,7 @@ class HomeScreen extends StatelessWidget {
 
                 onTap: () {
                   singleArticleScreenController.id.value=int.parse(homeScreenController.topVisitedList[index].id!);
-          Get.to(Single()) ;     },
+          Get.to(const Single()) ;     },
                 child: Padding(
                   padding:
                       EdgeInsets.only(right: index == 0 ? size.width / 10 : 15),
@@ -323,7 +323,7 @@ class HomeScreen extends StatelessWidget {
 
 
 
-  TagList( size,textTheme) {
+  tagListHome( size,textTheme) {
     return SizedBox(
         height: 60,
         child: ListView.builder(

@@ -13,6 +13,8 @@ import 'package:validators/validators.dart';
 import 'package:tech_blog/view/ExractHomeScreen.dart';
 class Register extends StatelessWidget {
  final  RegisterController registerController=Get.put(RegisterController());
+
+  Register({super.key});
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;

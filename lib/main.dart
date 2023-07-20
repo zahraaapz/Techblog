@@ -61,7 +61,7 @@ class Main extends StatelessWidget {
 
     locale: const Locale('fa'),
       
-      home:  SplashScreen(),
+      home:  const SplashScreen(),
     );
   }
 }

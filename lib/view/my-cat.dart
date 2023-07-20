@@ -80,6 +80,7 @@ class _MyCatsState extends State<MyCats> {
                           onTap: () {
                             setState(() {
                               if (favouritlist
+                                  // ignore: iterable_contains_unrelated_type
                                   .contains(listTag[index].title)) {
                                 favouritlist.add(Model(title: listTag[index].toString()));
                               }

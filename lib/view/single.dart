@@ -14,7 +14,7 @@ import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/view/article-list.dart';
 
 class Single extends StatefulWidget {
-  Single({super.key});
+ const Single({super.key});
 
   @override
   State<Single> createState() => _SingleState();
@@ -45,7 +45,7 @@ singleArticleScreenController.getArticleInfo();
           physics:const BouncingScrollPhysics(),
           child: Obx(()=>singleArticleScreenController.articleInfo.value.image==null?SizedBox(
             height: Get.height,
-            child: SpinKitCircle(
+            child: const SpinKitCircle(
                                 color: SolidColor.primary,
                                 size: 32,
                               ),
@@ -83,34 +83,34 @@ singleArticleScreenController.getArticleInfo();
                       child:  Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             width: 20,
                           ),
                          
-                          Icon(
+                          const Icon(
                             Icons.arrow_back,
                             color: Colors.white,
                             size: 24,shadows: [Shadow(color: Colors.blueGrey),Shadow(color: Colors.black)],
-                          ), Expanded(child: SizedBox()),
-                          Icon(
+                          ), const Expanded(child: SizedBox()),
+                          const Icon(
                             Icons.bookmark_border_rounded,
                             color: Colors.white,
                             size: 24,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 20,
                           ),
                           InkWell(
                             onTap: () {
                               Share.share('');
                             },
-                            child: Icon(
+                            child: const Icon(
                               Icons.share,
                               color: Colors.white,
                               size: 24,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 20,
                           ),
                         ],
@@ -135,7 +135,8 @@ singleArticleScreenController.getArticleInfo();
                 Image.asset(Assets.images.avatar.path,height:50),
                const SizedBox(width:16),
           
-           Text(singleArticleScreenController.articleInfo.value.author!,style:textStyle.bodyMedium), SizedBox(
+           Text(singleArticleScreenController.articleInfo.value.author!,style:textStyle.bodyMedium),
+            const SizedBox(
                             width: 20,
                           ),
            Text(singleArticleScreenController.articleInfo.value.createdAt!,style:textStyle.bodyMedium),
@@ -153,10 +154,10 @@ singleArticleScreenController.getArticleInfo();
                          enableCaching: true,),
                ) ,  
 
-               SizedBox(height: 20,),
+               const SizedBox(height: 20,),
                
-               TagList(),
-               SizedBox(height: 20,),
+               tagList(),
+               const SizedBox(height: 20,),
                 simillar()    ],
           ),
         ),
@@ -180,11 +181,11 @@ singleArticleScreenController.getArticleInfo();
                 onTap: () async{
 
                   singleArticleScreenController.id.value=int.parse(singleArticleScreenController.relatedlist[index].id!);
-                  Get.to(Single());
+                  Get.to(const Single());
                 },
                 child: Padding(
                   padding:
-                      EdgeInsets.only(right:8,),
+                      const EdgeInsets.only(right:8,),
                   child: Column(
                     children: [
                       Padding(
@@ -284,7 +285,8 @@ singleArticleScreenController.getArticleInfo();
 
   
 
-  TagList( ) {
+
+  tagList( ) {
     return SizedBox(
         height: 35,
         child: Obx(()=>
@@ -298,7 +300,7 @@ singleArticleScreenController.getArticleInfo();
                    articleScreenController.getArticleWithTagesId(singleArticleScreenController.taglist[index].id!);
                Get.to(ArticleList(textTheme:textStyle)) ;      },
                 child: Padding(
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                     right: 12),
                   child: Container(
                     height: 30,

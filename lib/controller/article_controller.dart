@@ -34,7 +34,7 @@ RxList<ArticleModel> articleList = RxList();
     articleList.clear();
     loading.value = true;
     
-    var response = await DioServices().getMethod(ApiCons.baseUrl+'article/get.php?command=get_articles_with_tag_id&tag_id=$id&user_id=');
+    var response = await DioServices().getMethod('${ApiCons.baseUrl}article/get.php?command=get_articles_with_tag_id&tag_id=$id&user_id=');
 
     response.data.forEach((element) {
      articleList.add(ArticleModel.fromJson(element));
