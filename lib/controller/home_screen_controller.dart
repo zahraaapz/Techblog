@@ -36,5 +36,7 @@ class HomeScreenController extends GetxController {
       topPodcast.add(PodcastModel.fromJson(element));
     });
     loading.value = false;
+
+    print(loading.value);
   }
 }

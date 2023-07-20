@@ -3,14 +3,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/controller/registerController.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/component/string.dart';
-import 'package:tech_blog/view/my-cat.dart';
-import 'package:validators/validators.dart';
 
+import 'package:validators/validators.dart';
+import 'package:tech_blog/view/ExractHomeScreen.dart';
 class Register extends StatelessWidget {
-   RegisterController registerController=Get.put(RegisterController());
+ final  RegisterController registerController=Get.put(RegisterController());
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
@@ -19,9 +21,10 @@ class Register extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            SvgPicture.network(
+            SvgPicture.asset(
               Assets.images.techbot.path,
               height: 100,
+              width: 100,
             ),
             Padding(
               padding: const EdgeInsets.all(18.0),
@@ -30,11 +33,18 @@ class Register extends StatelessWidget {
                   text: TextSpan(
                       text: MyString.wellcom, style: textTheme.headlineMedium)),
             ),
-            ElevatedButton(
-              onPressed: () {
-                showBottonEmail(context, textTheme);
-              },
-              child: const Text('بزن بریم'),
+            SizedBox(
+              height: 50,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  
+                  
+                  backgroundColor: MaterialStateProperty.all(SolidColor.primary)),
+                onPressed: () {
+                  showBottonEmail(context, textTheme);
+                },
+                child: Text('بزن بریم',style:textStyle.displayLarge,),
+              ),
             )
           ]),
         ),
@@ -70,19 +80,24 @@ class Register extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        controller: registerController.emailTextEditingController,
-                        onChanged: (value) {
-                          print(value + 'is email' + isEmail(value).toString());
-                        },
-                        decoration: const InputDecoration(
-                          hintText: 'techblog@gmail.com',
+                      child: SizedBox(
+                        height: 50,
+                        width: Get.width/1.5,
+                        child: TextField(textAlign: TextAlign.center,
+                          controller: registerController.emailTextEditingController,
+                          onChanged: (value) {
+                            print(value + 'is email' + isEmail(value).toString());
+                          },
+                          decoration:  InputDecoration(
+                            hintText: 'techblog@gmail.com',hintStyle: textStyle.headlineLarge
+                          ),
                         ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
+                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(SolidColor.primary)),
                           onPressed: (() {
                             registerController.register();
                             Navigator.pop(context);
@@ -91,7 +106,7 @@ class Register extends StatelessWidget {
                           }),
                           child: Text(
                             'ادامه',
-                            style: textTheme.displayMedium,
+                            style: textStyle.displayLarge,
                           )),
                     )
                   ]),
@@ -123,31 +138,41 @@ class Register extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'کد را وارد کنید',
-                        style: textTheme.headlineMedium,
+                        style: textStyle.headlineLarge,
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: '******',
+                   
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        height: 50,
+                        width: Get.width/1.5,
+                        child: const TextField(textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            hintText: '******',
+                          ),
                         ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                          onPressed: (() {
-                            registerController.verify();
-                            // Navigator.of(context).pushReplacement(
-                            //     MaterialPageRoute(builder: ((context) {
-                            //   return const MyCats();
-                            // })));
-                          }),
-                          child: Text(
-                            'ادامه',
-                            style: textTheme.displayMedium,
-                          )),
+                      child: SizedBox(
+                        height: 50,
+                        child: ElevatedButton(
+                          style: ButtonStyle(backgroundColor: MaterialStateProperty.all(SolidColor.primary)),
+                            onPressed: (() {
+                              registerController.verify();
+                              // Navigator.of(context).pushReplacement(
+                              //     MaterialPageRoute(builder: ((context) {
+                              //   return const MyCats();
+                              // })));
+                         Get.to(() => MainScreen());  
+                            }),
+                            child: Text(
+                              'ادامه',
+                              style: textStyle.displayLarge,
+                            )),
+                      ),
                     )
                   ]),
             ),

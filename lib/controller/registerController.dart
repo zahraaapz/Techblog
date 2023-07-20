@@ -1,7 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:tech_blog/component/api_constant.dart';
+import 'package:tech_blog/component/storage_const.dart';
 import 'package:tech_blog/services/service.dart';
+
 
 class RegisterController extends GetxController{
 
@@ -33,6 +38,22 @@ Map<String,dynamic>map={
 
   var response=  await  DioServices().postMethod(map, '${ApiCons.baseUrl}register/action.php');
 print(response);
+
+if (response.data=='verified') {
+  var box=GetStorage();
+ box.write(token, response.data['token']);
+ box.write(user_id, response.data['user_id']);
+
+
+ print('read::: '+box.read(token));
+ print('read::: '+box.read(user_id));
+
+ 
+}else{
+  log('error');
+}
 }
 
+
+ 
 }

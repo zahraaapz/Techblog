@@ -2,17 +2,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/component/component.dart';
 
 import 'package:tech_blog/view/splashScreen.dart';
 
-void main() {
+void main()async {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarIconBrightness: Brightness.dark,
       statusBarColor: Colors.white,
       systemNavigationBarColor: Colors.white,
       systemNavigationBarIconBrightness: Brightness.dark));
+      await GetStorage.init();
 
   runApp(const Main());
 }

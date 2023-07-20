@@ -34,109 +34,111 @@ class MainScreen extends StatelessWidget {
 
     return SafeArea(
     
-      child: Scaffold(
-        key: _key,
-          drawer: Drawer(
-            backgroundColor: Colors.white,
-            child: Padding(
-              padding: EdgeInsets.only(
-                  right: size.width / 10, left: size.width / 10),
-              child: ListView(
+      child: 
+       Scaffold(
+          key: _key,
+            drawer: Drawer(
+              backgroundColor: Colors.white,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    right: size.width / 10, left: size.width / 10),
+                child: ListView(
+                  children: [
+                    DrawerHeader(
+                        child: Center(
+                            child: Image.asset(
+                      Assets.images.techblog.path,
+                      scale: 3,
+                    ))),
+                    ListTile(
+                      onTap: () {},
+                      title: Text(
+                        'پروفایل کاربر',
+                        style: textTheme.headlineMedium,
+                      ),
+                    ),
+                    const Divider(
+                      color: Colors.grey,
+                    ),
+                    ListTile(
+                      onTap: () {},
+                      title: Text(
+                        'درباره تکبلاگ',
+                        style: textTheme.headlineMedium,
+                      ),
+                    ),
+                    const Divider(
+                      color: Colors.grey,
+                    ),
+                    ListTile(
+                      onTap: () async {
+                       await Share.share('www.sasansafari.com');
+                      },
+                      title: Text(
+                        'اشتراک گزاری تکبلاگ',
+                        style: textTheme.headlineMedium,
+                      ),
+                    ),
+                    const Divider(
+                      color: Colors.grey,
+                    ),
+                    ListTile(
+                      onTap: () {
+                        mylounchUrl('https://github.com/zahraaapz');
+                      },
+                      title: Text(
+                        'تکبلاگ در گیت هاب',
+                        style: textTheme.headlineMedium,
+                      ),
+                    ),
+                    const Divider(
+                      color: Colors.grey,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            appBar: AppBar(
+              automaticallyImplyLeading: false,
+              backgroundColor: SolidColor.bg,
+              elevation: 0,
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  DrawerHeader(
-                      child: Center(
-                          child: Image.asset(
-                    Assets.images.techblog.path,
-                    scale: 3,
-                  ))),
-                  ListTile(
-                    onTap: () {},
-                    title: Text(
-                      'پروفایل کاربر',
-                      style: textTheme.headlineMedium,
-                    ),
+                  InkWell(
+                      onTap: () {
+                    
+                       _key.currentState!.openDrawer();
+                      },
+                      child: const Icon(Icons.menu, color: Colors.black)),
+                  Image(
+                    image: Assets.images.techblog.provider(),
+                    height: size.height / 23,
                   ),
-                  const Divider(
-                    color: Colors.grey,
-                  ),
-                  ListTile(
-                    onTap: () {},
-                    title: Text(
-                      'درباره تکبلاگ',
-                      style: textTheme.headlineMedium,
-                    ),
-                  ),
-                  const Divider(
-                    color: Colors.grey,
-                  ),
-                  ListTile(
-                    onTap: () async {
-                     await Share.share('www.sasansafari.com');
-                    },
-                    title: Text(
-                      'اشتراک گزاری تکبلاگ',
-                      style: textTheme.headlineMedium,
-                    ),
-                  ),
-                  const Divider(
-                    color: Colors.grey,
-                  ),
-                  ListTile(
-                    onTap: () {
-                      mylounchUrl('https://github.com/zahraaapz');
-                    },
-                    title: Text(
-                      'تکبلاگ در گیت هاب',
-                      style: textTheme.headlineMedium,
-                    ),
-                  ),
-                  const Divider(
-                    color: Colors.grey,
-                  ),
+                  const Icon(Icons.search, color: Colors.black)
                 ],
               ),
             ),
+            body: Stack(children: [
+              Positioned.fill(
+                  child: Obx(() =>   IndexedStack(
+                index: selectPage.value,
+                children: [
+                  HomeScreen(size: size, textTheme: textTheme),
+                  ProfileScreen(size: size, textTheme: textTheme)
+                ],
+              ))
           ),
-          appBar: AppBar(
-            automaticallyImplyLeading: false,
-            backgroundColor: SolidColor.bg,
-            elevation: 0,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                InkWell(
-                    onTap: () {
-                  
-                     _key.currentState!.openDrawer();
-                    },
-                    child: const Icon(Icons.menu, color: Colors.black)),
-                Image(
-                  image: Assets.images.techblog.provider(),
-                  height: size.height / 23,
-                ),
-                const Icon(Icons.search, color: Colors.black)
-              ],
-            ),
-          ),
-          body: Stack(children: [
-            Positioned.fill(
-                child: Obx(() =>   IndexedStack(
-              index: selectPage.value,
-              children: [
-                HomeScreen(size: size, textTheme: textTheme),
-                ProfileScreen(size: size, textTheme: textTheme)
-              ],
-            ))
-        ),
-            Buttonbar(
-              size: size,
-              changeScreen: (int value) {
-              
-                  selectPage.value = value;
-               
-              },
-            )
-          ])),
+              Buttonbar(
+                size: size,
+                changeScreen: (int value) {
+                
+                    selectPage.value = value;
+                 
+                },
+              )
+            ])),
+      
     );
   }
 }
