@@ -26,6 +26,8 @@ class HomeScreen extends StatelessWidget {
  final HomeScreenController homeScreenController = Get.put(HomeScreenController());
  final SingleArticleScreenController  singleArticleScreenController = Get.put(SingleArticleScreenController());
  final ArticleScreenController  articleScreenController = Get.put(ArticleScreenController());
+
+
   @override
   Widget build(BuildContext context) {
     homeScreenController.getHomeItem();
@@ -54,9 +56,14 @@ class HomeScreen extends StatelessWidget {
                           const SizedBox(
                             width: 8,
                           ),
-                          Text(
-                            'مشاهده داغ ترین نوشته ها',
-                            style: textTheme.displaySmall,
+                          InkWell(
+                            onTap: () {
+                              Get.to(ArticleList(textTheme: textTheme));
+                            },
+                            child: Text(
+                              'مشاهده داغ ترین نوشته ها',
+                              style: textTheme.displaySmall,
+                            ),
                           )
                         ],
                       ),
