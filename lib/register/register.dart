@@ -136,8 +136,8 @@ class Register extends StatelessWidget {
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: Text(
                         'کد را وارد کنید',
                         // style: textStyle.headlineLarge,
@@ -149,9 +149,10 @@ class Register extends StatelessWidget {
                       child: SizedBox(
                         height: 50,
                         width: Get.width/1.5,
-                        child: const TextField(
+                        child:  TextField(
+                          controller: registerController.activeTextEditingController ,
                           textAlign: TextAlign.center,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: '******',
                           ),
                         ),

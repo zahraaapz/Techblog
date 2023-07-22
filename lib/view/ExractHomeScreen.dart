@@ -8,6 +8,8 @@ import 'package:tech_blog/component/color.dart';
 
 
 import 'package:tech_blog/component/component.dart';
+import 'package:tech_blog/controller/home_screen_controller.dart';
+import 'package:tech_blog/controller/registerController.dart';
 
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/register/register.dart';
@@ -19,11 +21,27 @@ import '../component/api_constant.dart';
 
 
 
-class MainScreen extends StatelessWidget {
-  final RxInt selectPage = 0.obs;
- final GlobalKey<ScaffoldState> _key = GlobalKey();
+class MainScreen extends StatefulWidget {
 
   MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  final RxInt selectPage = 0.obs;
+
+ final GlobalKey<ScaffoldState> _key = GlobalKey();
+
+  @override
+ initState(){
+ super.initState();
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+  // executes after build
+Get.find<HomeScreenController>().getHomeItem();
+  });
+}
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +162,8 @@ class MainScreen extends StatelessWidget {
 }
 
 class Buttonbar extends StatelessWidget {
-  const Buttonbar({
+  RegisterController registerController =Get.put(RegisterController());
+  Buttonbar({
     Key? key,
     required this.size,
     required this.changeScreen,
@@ -189,7 +208,7 @@ class Buttonbar extends StatelessWidget {
                   icon: ImageIcon(Assets.icon.write.provider(), color: Colors.white),
                   onPressed: () {
 
-                    Get.to(Register());
+                registerController.toggleLogin();
                   },
                 ),
                 IconButton(

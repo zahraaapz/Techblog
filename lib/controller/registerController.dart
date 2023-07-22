@@ -42,7 +42,7 @@ Map<String,dynamic>map={
   var response=  await  DioServices().postMethod(map,'${ApiCons.baseUrl}register/action.php');
 
   debugPrint(response.data.toString());
-var status=response.data['response'];
+  var status=response.data['response'];
 
  switch (status){
 
