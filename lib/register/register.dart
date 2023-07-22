@@ -140,7 +140,7 @@ class Register extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'کد را وارد کنید',
-                        style: textStyle.headlineLarge,
+                        // style: textStyle.headlineLarge,
                       ),
                     ),
                    
@@ -149,7 +149,8 @@ class Register extends StatelessWidget {
                       child: SizedBox(
                         height: 50,
                         width: Get.width/1.5,
-                        child: const TextField(textAlign: TextAlign.center,
+                        child: const TextField(
+                          textAlign: TextAlign.center,
                           decoration: InputDecoration(
                             hintText: '******',
                           ),
@@ -168,7 +169,7 @@ class Register extends StatelessWidget {
                               //     MaterialPageRoute(builder: ((context) {
                               //   return const MyCats();
                               // })));
-                         Get.to(() => MainScreen());  
+                       
                             }),
                             child: Text(
                               'ادامه',
