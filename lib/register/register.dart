@@ -8,9 +8,8 @@ import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/controller/registerController.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/component/string.dart';
-
 import 'package:validators/validators.dart';
-import 'package:tech_blog/view/ExractHomeScreen.dart';
+
 class Register extends StatelessWidget {
   var  registerController=Get.find<RegisterController>();
 

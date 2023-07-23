@@ -28,6 +28,8 @@ class MainScreen extends StatelessWidget {
 
  final GlobalKey<ScaffoldState> _key = GlobalKey();
 
+  MainScreen({super.key});
+
 
 
   @override

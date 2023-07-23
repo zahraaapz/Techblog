@@ -23,8 +23,17 @@ class $AssetsIconGen {
   /// File path: assets/icon/write.png
   AssetGenImage get write => const AssetGenImage('assets/icon/write.png');
 
+  /// File path: assets/icon/write_article.png
+  AssetGenImage get writeArticle =>
+      const AssetGenImage('assets/icon/write_article.png');
+
+  /// File path: assets/icon/write_podcast_icon.png
+  AssetGenImage get writePodcastIcon =>
+      const AssetGenImage('assets/icon/write_podcast_icon.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [home, user, write];
+  List<AssetGenImage> get values =>
+      [home, user, write, writeArticle, writePodcastIcon];
 }
 
 class $AssetsImagesGen {
@@ -180,7 +189,7 @@ class SvgGenImage {
       semanticsLabel: semanticsLabel,
       excludeFromSemantics: excludeFromSemantics,
       theme: theme,
-    
+   
       color: color,
       colorBlendMode: colorBlendMode,
       clipBehavior: clipBehavior,
