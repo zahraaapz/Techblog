@@ -21,27 +21,14 @@ import '../component/api_constant.dart';
 
 
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
 
-  MainScreen({super.key});
 
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
   final RxInt selectPage = 0.obs;
 
  final GlobalKey<ScaffoldState> _key = GlobalKey();
 
-  @override
- initState(){
- super.initState();
-  WidgetsBinding.instance.addPostFrameCallback((_) {
-  // executes after build
-Get.find<HomeScreenController>().getHomeItem();
-  });
-}
+
 
   @override
   Widget build(BuildContext context) {

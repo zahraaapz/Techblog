@@ -17,8 +17,8 @@ class ArticleList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ArticleScreenController articleScreenController = Get.put(ArticleScreenController());
-    SingleArticleScreenController singleArticleScreenController = Get.put(SingleArticleScreenController());
+   var articleScreenController = Get.find<ArticleScreenController>();
+    var singleArticleScreenController = Get.find<SingleArticleScreenController>();
 
     return SafeArea(
       child: Scaffold(

@@ -40,7 +40,7 @@ class Main extends StatelessWidget {
 
 
     GetPage(name: 'MainScreen', page: ()=>MainScreen(),binding: RegisterBinding()),
-    GetPage(name: 'SingleArticle', page: ()=>Single(),binding: ArticleBinding()),
+    GetPage(name: 'SingleArticle', page: ()=>const Single(),binding: ArticleBinding()),
   ],  );
   }
 

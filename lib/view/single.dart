@@ -23,7 +23,7 @@ class Single extends StatefulWidget {
 class _SingleState extends State<Single> {
 
 var singleArticleScreenController=Get.find<SingleArticleScreenController>();
-   ArticleScreenController articleScreenController = Get.put(ArticleScreenController());
+ var articleScreenController = Get.find<ArticleScreenController>();
 
   @override
   void initState(){
