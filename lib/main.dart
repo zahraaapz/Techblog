@@ -29,6 +29,7 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
     return GetMaterialApp(
+      initialBinding: RegisterBinding(),
       theme: lightTheme(textTheme),
       debugShowCheckedModeBanner: false,
 
