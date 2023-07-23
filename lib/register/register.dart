@@ -12,7 +12,7 @@ import 'package:tech_blog/component/string.dart';
 import 'package:validators/validators.dart';
 import 'package:tech_blog/view/ExractHomeScreen.dart';
 class Register extends StatelessWidget {
- final  RegisterController registerController=Get.put(RegisterController());
+  var  registerController=Get.find<RegisterController>();
 
   Register({super.key});
   @override

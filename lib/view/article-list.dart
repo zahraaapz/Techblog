@@ -72,7 +72,7 @@ class ArticleList extends StatelessWidget {
                     
                
                       
-                     Get.to(()=> const Single());   
+                     Get.toNamed('ingleArticle');   
                  
               },
                 child: Padding(

@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:tech_blog/binding.dart';
 import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/component/component.dart';
+import 'package:tech_blog/view/ExractHomeScreen.dart';
+import 'package:tech_blog/view/single.dart';
 
 import 'package:tech_blog/view/splashScreen.dart';
 
@@ -26,42 +29,52 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
     return GetMaterialApp(
-      theme: ThemeData(
-          inputDecorationTheme: InputDecorationTheme(
-            filled: true,
-            fillColor: Colors.white,
-            hintStyle: textTheme.headlineMedium,
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
-                borderSide:
-                    const BorderSide(width: 3, color: SolidColor.colorTitle)),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
-                borderSide:
-                    const BorderSide(width: 3, color: SolidColor.primary)),
-          ),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.resolveWith((state) {
-              if (state.contains(MaterialState.pressed)) {
-                return SolidColor.primary;
-              }
-
-              return SolidColor.colorTitle;
-            }), textStyle: MaterialStateProperty.resolveWith((state) {
-              if (state.contains(MaterialState.pressed)) {
-                return textTheme.headlineMedium;
-              }
-              return textTheme.displayMedium;
-            })),
-          ),
-          fontFamily: 'dana',
-          textTheme: textStyle),
+      theme: lightTheme(textTheme),
       debugShowCheckedModeBanner: false,
 
     locale: const Locale('fa'),
       
       home:  const SplashScreen(),
-    );
+  getPages: [
+
+
+
+    GetPage(name: 'MainScreen', page: ()=>MainScreen(),binding: RegisterBinding()),
+    GetPage(name: 'SingleArticle', page: ()=>Single(),binding: ArticleBinding()),
+  ],  );
+  }
+
+  ThemeData lightTheme(TextTheme textTheme) {
+    return ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: Colors.white,
+          hintStyle: textTheme.headlineMedium,
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
+              borderSide:
+                  const BorderSide(width: 3, color: SolidColor.colorTitle)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
+              borderSide:
+                  const BorderSide(width: 3, color: SolidColor.primary)),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.resolveWith((state) {
+            if (state.contains(MaterialState.pressed)) {
+              return SolidColor.primary;
+            }
+
+            return SolidColor.colorTitle;
+          }), textStyle: MaterialStateProperty.resolveWith((state) {
+            if (state.contains(MaterialState.pressed)) {
+              return textTheme.headlineMedium;
+            }
+            return textTheme.displayMedium;
+          })),
+        ),
+        fontFamily: 'dana',
+        textTheme: textStyle);
   }
 }

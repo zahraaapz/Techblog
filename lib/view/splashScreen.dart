@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/view/ExractHomeScreen.dart';
 import '../gen/assets.gen.dart';
@@ -18,9 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3)).then((value) {
-
-      Navigator.pushReplacement(
-          context, CupertinoPageRoute(builder: ((context) =>  MainScreen())));
+Get.offAndToNamed('mainScreen');
 
 
     });
