@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tech_blog/component/api_constant.dart';
@@ -75,7 +76,7 @@ class RegisterController extends GetxController {
 
   routeToWriteBottomSheet() {
     Get.bottomSheet(Container(
-      height: Get.height / 3,
+      height: Get.height / 2.5,
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -85,22 +86,26 @@ class RegisterController extends GetxController {
         child: Column(children: [
           Row(
             children: [
-              Image.asset(
+             SvgPicture.asset(
                 Assets.images.techbot.path,
-                height: 40,
+                height: 40,width: 40,
               ),
               const SizedBox(
                 width: 10,
               ),
-              const Text('...دونسته هات باما به اشتراک بزار'),
-              const SizedBox(
-                height: 10,
+              const Text('دونسته هات باما به اشتراک بزار...'),
+             
+               ],
+          ), const SizedBox(
+                height: 30,
               ),
-              const Text(
-                  ''' فکر کن !! اینجا بودنت به این معناست که یک گیگ تکنولوژی هستی ..دونسته هاتو با جامعه ی گیگ های فارسی زبان به اشتراک بگذار''')
-            ],
-          ),
-          Row(
+           Text(
+                  ''' فکر کن !! اینجا بودنت به این معناست که یک گیگ تکنولوژی هستی ..دونسته هاتو با جامعه ی گیگ های فارسی زبان به اشتراک بگذار''',maxLines: 3,)
+           ,
+           const SizedBox(
+                height: 30,
+              ),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
                 onTap: () {

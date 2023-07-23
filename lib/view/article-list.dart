@@ -72,7 +72,7 @@ class ArticleList extends StatelessWidget {
                     
                
                       
-                     Get.toNamed('ingleArticle');   
+                     Get.toNamed('/SingleArticle');   
                  
               },
                 child: Padding(

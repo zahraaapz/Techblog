@@ -24,8 +24,9 @@ class HomeScreen extends StatelessWidget {
  final TextTheme textTheme;
 
  final HomeScreenController homeScreenController = Get.put(HomeScreenController());
-var  articleScreenController = Get.find<ArticleScreenController>();
- var singleArticleScreenController=Get.find<SingleArticleScreenController>();
+ArticleScreenController articleScreenController = Get.put(ArticleScreenController());
+SingleArticleScreenController singleArticleScreenController = Get.put(SingleArticleScreenController());
+
 
 
   @override
