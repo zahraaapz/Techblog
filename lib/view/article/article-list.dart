@@ -26,34 +26,7 @@ class ArticleList extends StatelessWidget {
           preferredSize: const Size.fromHeight(60),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              actions: const [
-                Padding(
-                  padding: EdgeInsets.only(left: 8.0),
-                  child: Center(
-                      child: Text(
-                    'مقالات جدید',
-                    style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w300,
-                        color: SolidColor.divider),
-                  )),
-                )
-              ],
-              leading: Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: SolidColor.primary.withBlue(100)),
-                  child: const Icon(Icons.arrow_back),
-                ),
-              ),
-            ),
+            child: appBar('مقالات جدید'),
           ),
         ),
         body: SizedBox(
@@ -140,4 +113,41 @@ class ArticleList extends StatelessWidget {
       ),
     );
   }
-}
+
+
+}  AppBar appBar(String title) {
+
+    return AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            actions:  [
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Center(
+                    child: Text(
+                  title,
+                  style: const TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w300,
+                      color: SolidColor.divider),
+                )),
+              )
+            ],
+            leading: Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: GestureDetector(
+                onTap: () {
+                  Get.back();
+                },
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: SolidColor.primary.withBlue(100)),
+                  child: const Icon(Icons.arrow_back),
+                ),
+              ),
+            ),
+          );
+  }
