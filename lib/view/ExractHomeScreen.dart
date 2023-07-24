@@ -8,7 +8,6 @@ import 'package:tech_blog/component/color.dart';
 
 
 import 'package:tech_blog/component/component.dart';
-import 'package:tech_blog/controller/home_screen_controller.dart';
 import 'package:tech_blog/controller/registerController.dart';
 
 import 'package:tech_blog/gen/assets.gen.dart';

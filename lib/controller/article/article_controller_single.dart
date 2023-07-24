@@ -5,7 +5,7 @@ import 'package:tech_blog/Model/tags.dart';
 import 'package:tech_blog/component/api_constant.dart';
 import 'package:tech_blog/services/service.dart';
 
-import '../Model/article_info.dart';
+import '../../Model/article_info.dart';
 
 class SingleArticleScreenController extends GetxController {
   RxBool loading = false.obs;

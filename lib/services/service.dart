@@ -15,6 +15,10 @@ class DioServices {
         .then((value) {
       log(value.toString());
       return value;
+    }).catchError((e){
+      if (e is DioError) {
+        return e.response!;
+      }
     });
   }
 
@@ -31,6 +35,12 @@ return await dio.post(
 
 return value;
 
+}).catchError((e){
+
+
+  if (e is DioError) {
+    return e.response!;
+  }
 });
 
 

@@ -4,11 +4,12 @@ import 'package:get/get.dart';
 import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/Model/model.dart';
 import 'package:flutter/material.dart';
-import 'package:tech_blog/controller/article_controller.dart';
-import 'package:tech_blog/controller/article_controller_single.dart';
+import 'package:tech_blog/controller/article/article_controller.dart';
+import 'package:tech_blog/controller/article/article_controller_single.dart';
 import 'package:tech_blog/controller/home_screen_controller.dart';
-import 'package:tech_blog/view/article-list.dart';
-import 'package:tech_blog/view/single.dart';
+import 'package:tech_blog/main.dart';
+import 'package:tech_blog/view/article/article-list.dart';
+import 'package:tech_blog/view/article/single.dart';
 
 import '../gen/assets.gen.dart';
 
@@ -74,7 +75,7 @@ SingleArticleScreenController singleArticleScreenController = Get.put(SingleArti
                       onTap: () async{
                         
                       
-                        Get.to(const Single());
+                        Get.toNamed(NamedRoute.routeSingleArticle);
                       },
                       
                       child: blogList()),

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:tech_blog/controller/article_controller.dart';
-import 'package:tech_blog/controller/article_controller_single.dart';
+import 'package:tech_blog/controller/article/article_controller.dart';
+import 'package:tech_blog/controller/article/article_controller_single.dart';
 import 'package:tech_blog/controller/registerController.dart';
 
 class  ArticleBinding implements Bindings{
@@ -16,6 +16,22 @@ class  ArticleBinding implements Bindings{
 
 }
 class RegisterBinding implements Bindings
+{
+  @override
+  void dependencies() {
+
+
+    Get.put(RegisterController());
+
+
+  }
+
+
+
+
+}
+
+class ArticleManagerBinding implements Bindings
 {
   @override
   void dependencies() {

@@ -4,14 +4,14 @@ import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tech_blog/component/component.dart';
-import 'package:tech_blog/controller/article_controller.dart';
-import 'package:tech_blog/controller/article_controller_single.dart';
+import 'package:tech_blog/controller/article/article_controller.dart';
+import 'package:tech_blog/controller/article/article_controller_single.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'package:tech_blog/component/color.dart';
-import 'package:tech_blog/view/article-list.dart';
+import 'package:tech_blog/view/article/article-list.dart';
 
 class Single extends StatefulWidget {
  const Single({super.key});
@@ -28,9 +28,6 @@ var singleArticleScreenController=Get.find<SingleArticleScreenController>();
   @override
   void initState(){
     super.initState();
-
-
-  
 singleArticleScreenController.getArticleInfo();
   }
 

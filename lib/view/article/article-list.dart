@@ -5,10 +5,10 @@ import 'package:get/get.dart';
 
 
 import 'package:tech_blog/component/color.dart';
-import 'package:tech_blog/view/single.dart';
+import 'package:tech_blog/view/article/single.dart';
 
-import '../controller/article_controller.dart';
-import '../controller/article_controller_single.dart';
+import '../../controller/article/article_controller.dart';
+import '../../controller/article/article_controller_single.dart';
 
 class ArticleList extends StatelessWidget {
   final TextTheme textTheme;
@@ -121,7 +121,7 @@ class ArticleList extends StatelessWidget {
                             children: [
                               Text(articleScreenController
                                   .articleList[index].author!),
-                              const SizedBox(
+                                const SizedBox(
                                 width: 20,
                               ),
                               Text(

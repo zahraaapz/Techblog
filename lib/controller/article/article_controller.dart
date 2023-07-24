@@ -4,7 +4,7 @@ import 'package:tech_blog/Model/tags.dart';
 
 import 'package:tech_blog/services/service.dart';
 
-import '../component/api_constant.dart';
+import '../../component/api_constant.dart';
 
 class ArticleScreenController extends GetxController {
 RxList<Tags>taglist=RxList();

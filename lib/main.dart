@@ -7,7 +7,7 @@ import 'package:tech_blog/binding.dart';
 import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/view/ExractHomeScreen.dart';
-import 'package:tech_blog/view/single.dart';
+import 'package:tech_blog/view/article/single.dart';
 
 import 'package:tech_blog/view/splashScreen.dart';
 
@@ -40,8 +40,8 @@ class Main extends StatelessWidget {
 
 
 
-    GetPage(name: '/MainScreen', page: ()=>MainScreen(),binding: RegisterBinding()),
-    GetPage(name: '/SingleArticle', page: ()=>const Single(),binding: ArticleBinding()),
+    GetPage(name:NamedRoute.routeMainScreen , page: ()=>MainScreen(),binding: RegisterBinding()),
+    GetPage(name: NamedRoute.routeSingleArticle, page: ()=>const Single(),binding: ArticleBinding()),
   ],  );
   }
 
@@ -78,4 +78,9 @@ class Main extends StatelessWidget {
         fontFamily: 'dana',
         textTheme: textStyle);
   }
+}
+class NamedRoute{
+
+  static String routeMainScreen='/MainScreen';
+  static String routeSingleArticle='/SingleArticle';
 }

@@ -99,7 +99,7 @@ class RegisterController extends GetxController {
           ), const SizedBox(
                 height: 30,
               ),
-           Text(
+           const Text(
                   ''' فکر کن !! اینجا بودنت به این معناست که یک گیگ تکنولوژی هستی ..دونسته هاتو با جامعه ی گیگ های فارسی زبان به اشتراک بگذار''',maxLines: 3,)
            ,
            const SizedBox(
