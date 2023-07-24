@@ -42,6 +42,7 @@ class Main extends StatelessWidget {
 
     GetPage(name:NamedRoute.routeMainScreen , page: ()=>MainScreen(),binding: RegisterBinding()),
     GetPage(name: NamedRoute.routeSingleArticle, page: ()=>const Single(),binding: ArticleBinding()),
+    GetPage(name: NamedRoute.routeManageArticle, page: ()=>const Single(),binding: ArticleManagerBinding()),
   ],  );
   }
 
@@ -83,4 +84,5 @@ class NamedRoute{
 
   static String routeMainScreen='/MainScreen';
   static String routeSingleArticle='/SingleArticle';
+  static String routeManageArticle='/ManageArticle';
 }

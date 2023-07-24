@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:tech_blog/component/api_constant.dart';
 import 'package:tech_blog/component/storage_const.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
+import 'package:tech_blog/main.dart';
 import 'package:tech_blog/register/register.dart';
 import 'package:tech_blog/services/service.dart';
 import 'package:tech_blog/view/ExractHomeScreen.dart';
@@ -129,7 +130,7 @@ class RegisterController extends GetxController {
               ),
               GestureDetector(
                 onTap: () {
-                  debugPrint('erryyyor');
+                Get.toNamed(NamedRoute.routeManageArticle);
                 },
                 child: Container(
                   color: Colors.white,
