@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:tech_blog/controller/article/article_controller.dart';
 import 'package:tech_blog/controller/article/article_controller_single.dart';
+import 'package:tech_blog/controller/article/manage_article.dart';
 import 'package:tech_blog/controller/registerController.dart';
 
 class  ArticleBinding implements Bindings{
@@ -37,7 +38,7 @@ class ArticleManagerBinding implements Bindings
   void dependencies() {
 
 
-    Get.put(RegisterController());
+    Get.put(ManageArticleController());
 
 
   }

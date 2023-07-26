@@ -127,7 +127,7 @@ class ArticleList extends StatelessWidget {
                     child: Text(
                   title,
                   style: const TextStyle(
-                      fontSize: 17,
+                      fontSize: 15,
                       fontWeight: FontWeight.w300,
                       color: SolidColor.divider),
                 )),

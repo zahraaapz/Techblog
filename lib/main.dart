@@ -7,6 +7,7 @@ import 'package:tech_blog/binding.dart';
 import 'package:tech_blog/component/color.dart';
 import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/view/ExractHomeScreen.dart';
+import 'package:tech_blog/view/article/manage_article.dart';
 import 'package:tech_blog/view/article/single.dart';
 
 import 'package:tech_blog/view/splashScreen.dart';
@@ -42,7 +43,7 @@ class Main extends StatelessWidget {
 
     GetPage(name:NamedRoute.routeMainScreen , page: ()=>MainScreen(),binding: RegisterBinding()),
     GetPage(name: NamedRoute.routeSingleArticle, page: ()=>const Single(),binding: ArticleBinding()),
-    GetPage(name: NamedRoute.routeManageArticle, page: ()=>const Single(),binding: ArticleManagerBinding()),
+    GetPage(name: NamedRoute.routeManageArticle, page: ()=>ManageArticle(),binding: ArticleManagerBinding()),
   ],  );
   }
 

@@ -42,6 +42,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/avatar.png
   AssetGenImage get avatar => const AssetGenImage('assets/images/avatar.png');
 
+  /// File path: assets/images/empty_state.png
+  AssetGenImage get emptyState =>
+      const AssetGenImage('assets/images/empty_state.png');
+
   /// File path: assets/images/mic.png
   AssetGenImage get mic => const AssetGenImage('assets/images/mic.png');
 
@@ -64,8 +68,16 @@ class $AssetsImagesGen {
   SvgGenImage get techbot => const SvgGenImage('assets/images/techbot.svg');
 
   /// List of all assets
-  List<dynamic> get values =>
-      [avatar, mic, pen, programming, singlePlaceHolder, techblog, techbot];
+  List<dynamic> get values => [
+        avatar,
+        emptyState,
+        mic,
+        pen,
+        programming,
+        singlePlaceHolder,
+        techblog,
+        techbot
+      ];
 }
 
 class Assets {
@@ -189,7 +201,7 @@ class SvgGenImage {
       semanticsLabel: semanticsLabel,
       excludeFromSemantics: excludeFromSemantics,
       theme: theme,
-   
+     
       color: color,
       colorBlendMode: colorBlendMode,
       clipBehavior: clipBehavior,

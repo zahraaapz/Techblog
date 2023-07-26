@@ -48,14 +48,14 @@ class RegisterController extends GetxController {
     switch (status) {
       case 'verified':
         var box = GetStorage();
-        box.write(token, response.data['token']);
-        box.write(userId, response.data['user_id']);
+        box.write(StorageKey.token, response.data['token']);
+        box.write(StorageKey.userId, response.data['user_id']);
 
         // ignore: prefer_interpolation_to_compose_strings
-        debugPrint('read::: ' + box.read(token));
+        debugPrint('read::: ' + box.read(StorageKey.token));
 
         // ignore: prefer_interpolation_to_compose_strings
-        debugPrint('read::: ' + box.read(userId));
+        debugPrint('read::: ' + box.read(StorageKey.userId));
         Get.offAll(MainScreen());
         break;
       case 'incorrect_code':
@@ -68,7 +68,7 @@ class RegisterController extends GetxController {
   }
 
   toggleLogin() {
-    if (GetStorage().read(token) == null) {
+    if (GetStorage().read(StorageKey.token) == null) {
       Get.to(Register());
     } else {
       routeToWriteBottomSheet();
@@ -110,7 +110,7 @@ class RegisterController extends GetxController {
             children: [
               GestureDetector(
                 onTap: () {
-                  debugPrint('errohjr');
+                  Get.toNamed(NamedRoute.routeManageArticle);
                 },
                 child: Container(
                   color: Colors.white,
@@ -130,7 +130,7 @@ class RegisterController extends GetxController {
               ),
               GestureDetector(
                 onTap: () {
-                Get.toNamed(NamedRoute.routeManageArticle);
+              
                 },
                 child: Container(
                   color: Colors.white,
