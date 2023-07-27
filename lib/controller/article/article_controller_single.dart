@@ -13,12 +13,7 @@ class SingleArticleScreenController extends GetxController {
   Rx<ArticleInfoModel> articleInfo=ArticleInfoModel().obs;
 RxList<Tags>taglist=RxList();
 RxList<ArticleModel>relatedlist=RxList();
-@override   
-onInit(){
 
-  super.onInit;
-
-}
 
 
   getArticleInfo() async {

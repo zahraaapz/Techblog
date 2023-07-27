@@ -11,6 +11,7 @@ RxBool loading=false.obs;
 
   void onInit(){
     super.onInit();
+ 
     getManageArticle();
   }
 

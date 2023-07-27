@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 
 import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/main.dart';
 import 'package:tech_blog/view/article/single.dart';
 
 import '../../controller/article/article_controller.dart';
@@ -45,7 +46,7 @@ class ArticleList extends StatelessWidget {
                     
                
                       
-                     Get.toNamed('/SingleArticle');   
+                     Get.toNamed(NamedRoute.routeManageArticle);   
                  
               },
                 child: Padding(
