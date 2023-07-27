@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tech_blog/component/api_constant.dart';
 import 'package:tech_blog/component/storage_const.dart';
+import 'package:tech_blog/component/string.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/main.dart';
 import 'package:tech_blog/register/register.dart';
@@ -94,14 +95,14 @@ class RegisterController extends GetxController {
               const SizedBox(
                 width: 10,
               ),
-              const Text('دونسته هات باما به اشتراک بزار...'),
+               Text(MyString.shareKnowledge),
              
                ],
           ), const SizedBox(
                 height: 30,
               ),
-           const Text(
-                  ''' فکر کن !! اینجا بودنت به این معناست که یک گیگ تکنولوژی هستی ..دونسته هاتو با جامعه ی گیگ های فارسی زبان به اشتراک بگذار''',maxLines: 3,)
+            Text(
+                MyString.gigTech,maxLines: 3,)
            ,
            const SizedBox(
                 height: 30,

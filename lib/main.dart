@@ -9,6 +9,7 @@ import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/view/ExractHomeScreen.dart';
 import 'package:tech_blog/view/article/manage_article.dart';
 import 'package:tech_blog/view/article/single.dart';
+import 'package:tech_blog/view/article/single_anage_article.dart';
 
 import 'package:tech_blog/view/splashScreen.dart';
 
@@ -44,6 +45,7 @@ class Main extends StatelessWidget {
     GetPage(name:NamedRoute.routeMainScreen , page: ()=>MainScreen(),binding: RegisterBinding()),
     GetPage(name: NamedRoute.routeSingleArticle, page: ()=>const Single(),binding: ArticleBinding()),
     GetPage(name: NamedRoute.routeManageArticle, page: ()=>ManageArticle(),binding: ArticleManagerBinding()),
+    GetPage(name: NamedRoute.routeSingleManageArticle, page: ()=>const SingleManageArticle(),binding: ArticleManagerBinding()),
   ],  );
   }
 
@@ -86,4 +88,5 @@ class NamedRoute{
   static String routeMainScreen='/MainScreen';
   static String routeSingleArticle='/SingleArticle';
   static String routeManageArticle='/ManageArticle';
+  static String routeSingleManageArticle='/SigleManageArticle';
 }

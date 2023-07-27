@@ -11,20 +11,14 @@ String? view;
 String? status;
 String? createdAt;
 
-ArticleModel({
+ArticleModel(
 
-  required this.id,
-  required this.image,
-  required this.title,
-  required this.catId,
-  required this.catName,
-  required this.author,
-  required this.view,
-  required this.status,
-  required this.createdAt,
+  this.id,
+   this.image,
+   this.title,
 
 
-});
+);
 
 ArticleModel.fromJson(Map<String,dynamic>element){
 

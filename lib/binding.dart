@@ -39,6 +39,7 @@ class ArticleManagerBinding implements Bindings
 
 
     Get.put(ManageArticleController());
+  Get.lazyPut(() => SingleArticleScreenController());
 
 
   }

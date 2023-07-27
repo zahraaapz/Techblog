@@ -84,10 +84,13 @@ singleArticleScreenController.getArticleInfo();
                             width: 20,
                           ),
                          
-                          const Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                            size: 24,shadows: [Shadow(color: Colors.blueGrey),Shadow(color: Colors.black)],
+                          GestureDetector(
+                            onTap: () => Get.back(),
+                            child: const Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                              size: 24,shadows: [Shadow(color: Colors.blueGrey),Shadow(color: Colors.black)],
+                            ),
                           ), const Expanded(child: SizedBox()),
                           const Icon(
                             Icons.bookmark_border_rounded,
@@ -114,7 +117,10 @@ singleArticleScreenController.getArticleInfo();
                       ),
                     ),
                   )
-                ],
+             , Positioned(
+              bottom: 0,left: 0,right: 0,
+              
+              child: Center(child: Container(height:30,width: 60 ,color: Colors.black,)))  ],
               ),
           Padding(
             padding: const EdgeInsets.only(right: 10,top:25),

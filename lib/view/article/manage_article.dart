@@ -10,6 +10,7 @@ import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/controller/article/manage_article.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/component/string.dart';
+import 'package:tech_blog/main.dart';
 import 'package:tech_blog/view/article/article-list.dart';
 
 
@@ -24,6 +25,16 @@ class ManageArticle extends StatelessWidget {
     var textTheme = Theme.of(context).textTheme;
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: ElevatedButton(
+              style: ButtonStyle(
+                
+                fixedSize: MaterialStateProperty.all(Size(Get.width/3, 56)),
+                backgroundColor: MaterialStateProperty.all(SolidColor.primary)),
+              onPressed: () {
+             Get.toNamed(NamedRoute.routeSingleManageArticle);
+              },
+              child: Text('بریم برای نوشتن یه مفاله باحال',style:textStyle.displayLarge,),
+            ),
         appBar: appBar('مدیریت مقاله ها'),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -126,19 +137,7 @@ class ManageArticle extends StatelessWidget {
                 text: TextSpan(
                     text: MyString.articleEmpty, style: textTheme.headlineMedium)),
           ),
-          SizedBox(
-            height: 50,
-            child: ElevatedButton(
-              style: ButtonStyle(
-                
-                
-                backgroundColor: MaterialStateProperty.all(SolidColor.primary)),
-              onPressed: () {
-             
-              },
-              child: Text('بریم برای نوشتن یه مفاله باحال',style:textStyle.displayLarge,),
-            ),
-          )
+        
         ]),
       );
   }
