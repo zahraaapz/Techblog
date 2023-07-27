@@ -27,7 +27,14 @@ class ManageArticle extends StatelessWidget {
         appBar: appBar('مدیریت مقاله ها'),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
-        child:Obx(() => manageArticleController.articleList.isNotEmpty
+        child:Obx(() =>
+           manageArticleController.loading.value?
+             const SpinKitCircle(
+            size: 30,
+            color: SolidColor.primary,
+          ):
+        
+         manageArticleController.articleList.isNotEmpty
             ? ListView.builder(
                 physics:const BouncingScrollPhysics(),
               itemCount: manageArticleController.articleList.length,

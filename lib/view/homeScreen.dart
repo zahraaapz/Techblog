@@ -39,7 +39,7 @@ SingleArticleScreenController singleArticleScreenController = Get.put(SingleArti
         child: Obx(
           () => Padding(
             padding: const EdgeInsets.all(1.0),
-            child: homeScreenController.loading == false.obs
+            child: homeScreenController.loading.value == false
                 ? Column(children: [
                     posterImage(),
                     Padding(
