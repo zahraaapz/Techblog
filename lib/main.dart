@@ -4,12 +4,12 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tech_blog/binding.dart';
-import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/view/ExractHomeScreen.dart';
 import 'package:tech_blog/view/article/manage_article.dart';
 import 'package:tech_blog/view/article/single.dart';
-import 'package:tech_blog/view/article/single_anage_article.dart';
+import 'package:tech_blog/view/article/single_manage_article.dart';
 
 import 'package:tech_blog/view/splashScreen.dart';
 

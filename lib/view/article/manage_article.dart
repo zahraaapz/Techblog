@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'package:get/get.dart';
-import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/controller/article/manage_article.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/component/string.dart';
+import 'package:tech_blog/component/constant/string.dart';
 import 'package:tech_blog/main.dart';
 import 'package:tech_blog/view/article/article-list.dart';
 
@@ -25,16 +25,19 @@ class ManageArticle extends StatelessWidget {
     var textTheme = Theme.of(context).textTheme;
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: ElevatedButton(
-              style: ButtonStyle(
-                
-                fixedSize: MaterialStateProperty.all(Size(Get.width/3, 56)),
-                backgroundColor: MaterialStateProperty.all(SolidColor.primary)),
-              onPressed: () {
-             Get.toNamed(NamedRoute.routeSingleManageArticle);
-              },
-              child: Text('بریم برای نوشتن یه مفاله باحال',style:textStyle.displayLarge,),
-            ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: ElevatedButton(
+                style: ButtonStyle(
+                  
+                  fixedSize: MaterialStateProperty.all(Size(Get.width/3, 56)),
+                  backgroundColor: MaterialStateProperty.all(SolidColor.primary)),
+                onPressed: () {
+               Get.toNamed(NamedRoute.routeSingleManageArticle);
+                },
+                child: Text('بریم برای نوشتن یه مقاله باحال',style:textStyle.displayLarge,),
+              ),
+        ),
         appBar: appBar('مدیریت مقاله ها'),
         body: Padding(
           padding: const EdgeInsets.all(8.0),

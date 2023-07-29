@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/Model/model.dart';
+
+import '../component/dimention.dart';
 
 class MyCats extends StatefulWidget {
   const MyCats({super.key});
@@ -23,8 +25,8 @@ class _MyCatsState extends State<MyCats> {
         physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: EdgeInsets.only(
-              right: MediaQuery.of(context).size.width / 10,
-              left: MediaQuery.of(context).size.width / 10),
+              right: Dimention.bodyMargin,
+              left: Dimention.bodyMargin),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -10,7 +10,7 @@ import 'package:tech_blog/gen/assets.gen.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/view/article/article-list.dart';
 
 class Single extends StatefulWidget {
@@ -51,21 +51,19 @@ singleArticleScreenController.getArticleInfo();
             children: [
               Stack(
                 children: [
-                  SizedBox(
-                    child: CachedNetworkImage(
-                        imageUrl: singleArticleScreenController.articleInfo.value.image!,
-                        imageBuilder: (context, imageProvider) {
-                          return Image(
-                           image: imageProvider,
-                          );
-                        },
-                        placeholder: (context, url) => const SpinKitCircle(
-                              color: SolidColor.primary,
-                              size: 32,
-                            ),
-                        errorWidget: (context, url, error) =>
-                            Image.asset(Assets.images.singlePlaceHolder.path)),
-                  ),
+                  CachedNetworkImage(
+                      imageUrl: singleArticleScreenController.articleInfo.value.image!,
+                      imageBuilder: (context, imageProvider) {
+                        return Image(
+                         image: imageProvider,
+                        );
+                      },
+                      placeholder: (context, url) => const SpinKitCircle(
+                            color: SolidColor.primary,
+                            size: 32,
+                          ),
+                      errorWidget: (context, url, error) =>
+                          Image.asset(Assets.images.singlePlaceHolder.path)),
                   Positioned(
                     right: 0,
                     left: 0,
@@ -117,10 +115,7 @@ singleArticleScreenController.getArticleInfo();
                       ),
                     ),
                   )
-             , Positioned(
-              bottom: 0,left: 0,right: 0,
-              
-              child: Center(child: Container(height:30,width: 60 ,color: Colors.black,)))  ],
+             ,   ],
               ),
           Padding(
             padding: const EdgeInsets.only(right: 10,top:25),

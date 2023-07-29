@@ -1,19 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
-import 'package:share_plus/share_plus.dart';
+
 import 'package:tech_blog/component/component.dart';
+import 'package:tech_blog/component/constant/string.dart';
 import 'package:tech_blog/controller/article/article_controller.dart';
-import 'package:tech_blog/controller/article/article_controller_single.dart';
 import 'package:tech_blog/controller/article/manage_article.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/view/article/article-list.dart';
-import 'package:tech_blog/view/article/manage_article.dart';
+
+import '../../component/dimention.dart';
 
 class SingleManageArticle extends StatefulWidget {
  const SingleManageArticle({super.key});
@@ -43,21 +43,20 @@ var manageArticleController=Get.find<ManageArticleController>();
             children: [
               Stack(
                 children: [
-                  SizedBox(
-                    child: CachedNetworkImage(
-                        imageUrl: manageArticleController.articleInfoModel.value.image!,
-                        imageBuilder: (context, imageProvider) {
-                          return Image(
-                           image: imageProvider,
-                          );
-                        },
-                        placeholder: (context, url) => const SpinKitCircle(
-                              color: SolidColor.primary,
-                              size: 32,
-                            ),
-                        errorWidget: (context, url, error) =>
-                            Image.asset(Assets.images.singlePlaceHolder.path)),
-                  ),
+                  CachedNetworkImage(
+                      imageUrl: manageArticleController.articleInfoModel.value.image!,
+                      imageBuilder: (context, imageProvider) {
+                        return Image(
+                          
+                         image: imageProvider,
+                        );
+                      },
+                      placeholder: (context, url) => const SpinKitCircle(
+                            color: SolidColor.primary,
+                            size: 32,
+                          ),
+                      errorWidget: (context, url, error) =>
+                          Image.asset(Assets.images.singlePlaceHolder.path,)),
                   Positioned(
                     right: 0,
                     left: 0,
@@ -76,61 +75,51 @@ var manageArticleController=Get.find<ManageArticleController>();
                             width: 20,
                           ),
                          
-                          const Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                            size: 24,shadows: [Shadow(color: Colors.blueGrey),Shadow(color: Colors.black)],
-                          ), const Expanded(child: SizedBox()),
-                          const Icon(
-                            Icons.bookmark_border_rounded,
-                            color: Colors.white,
-                            size: 24,
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Share.share('');
-                            },
+                          GestureDetector(
+                            onTap: () => Get.back(),
                             child: const Icon(
-                              Icons.share,
+                              Icons.arrow_back,
                               color: Colors.white,
-                              size: 24,
+                              size: 24,shadows: [Shadow(color: Colors.blueGrey),Shadow(color: Colors.black)],
                             ),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
+                          ), const Expanded(child: SizedBox()),
+                      
                         ],
                       ),
                     ),
                   )
-                ],
+          ,Positioned(
+              bottom: 0,left: 0,right: 0,
+              
+              child: Center(child: Container(
+                
+                
+                height:30,width: Get.width/3
+                ,decoration: const BoxDecoration(color: SolidColor.primary,borderRadius: 
+                BorderRadius.only(topLeft: Radius.circular(12),topRight: Radius.circular(12))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                  Text('انتخاب تصویر',style: textStyle.displayLarge,),
+                  Icon(Icons.add,color: Colors.white,)
+                ]),
+                
+                )))      ],
               ),
-          Padding(
-            padding: const EdgeInsets.only(right: 10,top:25),
-            child: Row(mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(manageArticleController.articleInfoModel.value.title!,style:textStyle.headlineLarge),
-              ],
-            ),
+
+         titleRowArticle('ویرایش عنوان مقاله',Dimention.bodyMargin/2),
+          Row(mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              
+               const SizedBox(width: 20,),
+              Text(MyString.titltArrticle),
+            ],
           ),
-          
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(children:[
-          
-                Image.asset(Assets.images.avatar.path,height:50),
-               const SizedBox(width:16),
-          
-           Text(manageArticleController.articleInfoModel.value.author!,style:textStyle.bodyMedium),
-            const SizedBox(
-                            width: 20,
-                          ),
-           Text(manageArticleController.articleInfoModel.value.createdAt!,style:textStyle.bodyMedium),
-            ]),
-          ),
+           titleRowArticle('ویرایش متن اصلی مقاله',Dimention.bodyMargin/2),
+      Padding(
+        padding: const EdgeInsets.only(right:20.0,left: 20),
+        child: Text(MyString.editOrginalTextArticle,),
+      ),
               
 
                const SizedBox(height: 20,),

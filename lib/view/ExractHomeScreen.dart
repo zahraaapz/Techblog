@@ -1,22 +1,22 @@
-// ignore_for_file: file_names
+
 
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/component/constant/color.dart';
 
 
 import 'package:tech_blog/component/component.dart';
+import 'package:tech_blog/component/dimention.dart';
 import 'package:tech_blog/controller/registerController.dart';
 
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/register/register.dart';
 import 'package:tech_blog/services/service.dart';
 import 'package:tech_blog/view/homeScreen.dart';
 import 'package:tech_blog/view/profileScreen.dart';
 
-import '../component/api_constant.dart';
+import '../component/constant/api_constant.dart';
 
 
 
@@ -47,7 +47,7 @@ class MainScreen extends StatelessWidget {
               backgroundColor: Colors.white,
               child: Padding(
                 padding: EdgeInsets.only(
-                    right: size.width / 10, left: size.width / 10),
+                    right: Dimention.bodyMargin, left: size.width / 10),
                 child: ListView(
                   children: [
                     DrawerHeader(
@@ -175,7 +175,7 @@ class Buttonbar extends StatelessWidget {
                 end: Alignment.bottomCenter)),
         child: Padding(
           padding:
-              EdgeInsets.only(left: size.width / 10, right: size.width / 10),
+              EdgeInsets.only(left: Dimention.bodyMargin, right: size.width / 10),
           child: Container(
             height: size.height / 8,
             decoration: BoxDecoration(

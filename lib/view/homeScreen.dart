@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/Model/model.dart';
 import 'package:flutter/material.dart';
+import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/controller/article/article_controller.dart';
 import 'package:tech_blog/controller/article/article_controller_single.dart';
 import 'package:tech_blog/controller/home_screen_controller.dart';
@@ -11,6 +12,7 @@ import 'package:tech_blog/main.dart';
 import 'package:tech_blog/view/article/article-list.dart';
 import 'package:tech_blog/view/article/single.dart';
 
+import '../component/dimention.dart';
 import '../gen/assets.gen.dart';
 
 
@@ -46,30 +48,9 @@ SingleArticleScreenController singleArticleScreenController = Get.put(SingleArti
                       padding: const EdgeInsets.only(top: 10.0),
                       child: tagListHome( size, textTheme),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: 10.0, right: size.width / 10, bottom: 8),
-                      child: Row(
-                        children: [
-                          ImageIcon(
-                            Assets.images.pen.provider(),
-                            color: SolidColor.colorTitle,
-                          ),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Get.to(ArticleList(textTheme: textTheme));
-                            },
-                            child: Text(
-                              'مشاهده داغ ترین نوشته ها',
-                              style: textTheme.displaySmall,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                    GestureDetector(
+                      onTap: () =>   Get.to(ArticleList(textTheme: textTheme)),
+                      child: titleRowArticle('مشاهده داغ ترین نوشته ها',Dimention.bodyMargin)),
                     GestureDetector(
                       
                       onTap: () async{
@@ -80,20 +61,8 @@ SingleArticleScreenController singleArticleScreenController = Get.put(SingleArti
                       
                       child: blogList()),
                     Padding(
-                      padding: EdgeInsets.only(right: size.width / 10),
-                      child: Row(
-                        children: [
-                          ImageIcon(Assets.images.mic.provider(),
-                              color: SolidColor.colorTitle),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          Text(
-                            'مشاهده داغ ترین پادکست ها',
-                            style: textTheme.displaySmall,
-                          )
-                        ],
-                      ),
+                      padding: EdgeInsets.only(right: Dimention.bodyMargin),
+                      child: titleRowPodcast('مشاهده داغ ترین پادکست ها'),
                     ),
                     podcastList(),
                     const SizedBox(
@@ -108,6 +77,10 @@ SingleArticleScreenController singleArticleScreenController = Get.put(SingleArti
         ));
   }
 
+
+
+
+
   SizedBox podcastList() {
     return SizedBox(
       height: size.height / 3.5,
@@ -118,7 +91,7 @@ SingleArticleScreenController singleArticleScreenController = Get.put(SingleArti
             itemBuilder: ((context, index) {
               return Padding(
                 padding: EdgeInsets.only(
-                    right: index == 0 ? size.width / 10 : 15, top: 16),
+                    right: index == 0 ? Dimention.bodyMargin : 15, top: 16),
                 child: Column(
                   children: [
                     Padding(
@@ -179,7 +152,7 @@ SingleArticleScreenController singleArticleScreenController = Get.put(SingleArti
           Get.to(const Single()) ;     },
                 child: Padding(
                   padding:
-                      EdgeInsets.only(right: index == 0 ? size.width / 10 : 15),
+                      EdgeInsets.only(right: index == 0 ? Dimention.bodyMargin : 15),
                   child: Column(
                     children: [
                       Padding(
@@ -341,7 +314,7 @@ SingleArticleScreenController singleArticleScreenController = Get.put(SingleArti
               },
               child: Padding(
                 padding: EdgeInsets.only(
-                    right: index == 0 ? size.width / 10 : 15, top: 5),
+                    right: index == 0 ? Dimention.bodyMargin : 15, top: 5),
                 child: Container(
                   height: 60,
                   decoration: BoxDecoration(

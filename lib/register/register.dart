@@ -3,20 +3,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/controller/registerController.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/component/string.dart';
+import 'package:tech_blog/component/constant/string.dart';
 import 'package:validators/validators.dart';
 
 class Register extends StatelessWidget {
-  var  registerController=Get.find<RegisterController>();
+ var  registerController=Get.find<RegisterController>();
 
   Register({super.key});
   @override
   Widget build(BuildContext context) {
-    var textTheme = Theme.of(context).textTheme;
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -32,7 +32,7 @@ class Register extends StatelessWidget {
               child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                      text: MyString.wellcom, style: textTheme.headlineMedium)),
+                      text: MyString.wellcom, style: textStyle.headlineMedium)),
             ),
             SizedBox(
               height: 50,
@@ -42,7 +42,7 @@ class Register extends StatelessWidget {
                   
                   backgroundColor: MaterialStateProperty.all(SolidColor.primary)),
                 onPressed: () {
-                  showBottonEmail(context, textTheme);
+                  showBottonEmail(context, textStyle);
                 },
                 child: Text('بزن بریم',style:textStyle.displayLarge,),
               ),

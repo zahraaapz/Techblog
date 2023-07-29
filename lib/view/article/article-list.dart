@@ -4,7 +4,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 
-import 'package:tech_blog/component/color.dart';
+import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/main.dart';
 import 'package:tech_blog/view/article/single.dart';
 
@@ -46,7 +46,7 @@ class ArticleList extends StatelessWidget {
                     
                
                       
-                     Get.toNamed(NamedRoute.routeManageArticle);   
+                     Get.toNamed(NamedRoute.routeSingleArticle);   
                  
               },
                 child: Padding(

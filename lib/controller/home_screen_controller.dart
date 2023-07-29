@@ -6,7 +6,7 @@ import 'package:tech_blog/Model/poster.dart';
 import 'package:tech_blog/Model/tags.dart';
 import 'package:tech_blog/services/service.dart';
 
-import '../component/api_constant.dart';
+import '../component/constant/api_constant.dart';
 
 class HomeScreenController extends GetxController {
   Rx<Poster> poster = Poster().obs;
