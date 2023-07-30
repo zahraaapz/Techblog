@@ -1,3 +1,9 @@
+
+
+
+
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,11 +12,13 @@ import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/component/constant/string.dart';
 import 'package:tech_blog/controller/article/article_controller.dart';
 import 'package:tech_blog/controller/article/manage_article.dart';
+import 'package:tech_blog/controller/file_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'package:tech_blog/component/constant/color.dart';
+import 'package:tech_blog/services/pick_file.dart';
 import 'package:tech_blog/view/article/article-list.dart';
 
 import '../../component/dimention.dart';
@@ -29,6 +37,7 @@ var manageArticleController=Get.find<ManageArticleController>();
 
 
 
+FilePickerController filePickerController=Get.put(FilePickerController());
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +52,11 @@ var manageArticleController=Get.find<ManageArticleController>();
             children: [
               Stack(
                 children: [
+                  SizedBox(
+                    width: Get.width,
+                    height: Get.height/3,
+                    child:
+filePickerController.file.value.name=='not'?
                   CachedNetworkImage(
                       imageUrl: manageArticleController.articleInfoModel.value.image!,
                       imageBuilder: (context, imageProvider) {
@@ -56,7 +70,11 @@ var manageArticleController=Get.find<ManageArticleController>();
                             size: 32,
                           ),
                       errorWidget: (context, url, error) =>
-                          Image.asset(Assets.images.singlePlaceHolder.path,)),
+                          Image.asset(Assets.images.singlePlaceHolder.path,)):
+                          Image.file(
+                            
+                            File(filePickerController.file.value.path!),fit: BoxFit.cover,),
+                  ),          
                   Positioned(
                     right: 0,
                     left: 0,
@@ -91,22 +109,27 @@ var manageArticleController=Get.find<ManageArticleController>();
           ,Positioned(
               bottom: 0,left: 0,right: 0,
               
-              child: Center(child: Container(
-                
-                
-                height:30,width: Get.width/3
-                ,decoration: const BoxDecoration(color: SolidColor.primary,borderRadius: 
-                BorderRadius.only(topLeft: Radius.circular(12),topRight: Radius.circular(12))),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                  Text('انتخاب تصویر',style: textStyle.displayLarge,),
-                  Icon(Icons.add,color: Colors.white,)
-                ]),
-                
-                )))      ],
+              child: Center(child: GestureDetector(
+                onTap: () {
+                  pickFile();
+                },
+                child: Container(
+                  
+                  
+                  height:30,width: Get.width/3
+                  ,decoration: const BoxDecoration(color: SolidColor.primary,borderRadius: 
+                  BorderRadius.only(topLeft: Radius.circular(12),topRight: Radius.circular(12))),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                    Text('انتخاب تصویر',style: textStyle.displayLarge,),
+                    Icon(Icons.add,color: Colors.white,)
+                  ]),
+                  
+                  ),
+              )))      ],
               ),
-
+    const SizedBox(height: 20,),
          titleRowArticle('ویرایش عنوان مقاله',Dimention.bodyMargin/2),
           Row(mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -114,18 +137,20 @@ var manageArticleController=Get.find<ManageArticleController>();
                const SizedBox(width: 20,),
               Text(MyString.titltArrticle),
             ],
-          ),
+          ),    const SizedBox(height: 20,),
+
            titleRowArticle('ویرایش متن اصلی مقاله',Dimention.bodyMargin/2),
       Padding(
         padding: const EdgeInsets.only(right:20.0,left: 20),
         child: Text(MyString.editOrginalTextArticle,),
       ),
               
+    const SizedBox(height: 20,),
 
-               const SizedBox(height: 20,),
+       titleRowArticle('انتخاب دسته بندی',Dimention.bodyMargin/2),
+
                
-               tagList(),
-               const SizedBox(height: 20,),
+             
                  ],
           ),
         ),
