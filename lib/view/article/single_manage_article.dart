@@ -34,11 +34,34 @@ class _SingleManageArticleState extends State<SingleManageArticle> {
 
 var manageArticleController=Get.find<ManageArticleController>();
  var articleScreenController = Get.find<ArticleScreenController>();
-
-
-
 FilePickerController filePickerController=Get.put(FilePickerController());
 
+
+getTitle(){
+
+
+  Get.defaultDialog(
+    title: 'عنوان مقاله',
+    radius: 8,
+    confirm: ElevatedButton(onPressed: (){
+manageArticleController.updateTitle();
+      Get.back();
+    }, child:Text('ثبت')),
+    titleStyle: TextStyle(color: SolidColor.bg),
+    backgroundColor: SolidColor.primary,
+    content: TextField(
+      controller:manageArticleController.titletextEditingController ,
+      keyboardType: TextInputType.text,
+      style: TextStyle(
+        color: SolidColor.colorTitle
+      ),
+      decoration: InputDecoration(
+        hintText: 'اینجا بنویس',
+
+      ),
+    ),
+  );
+}
   @override
   Widget build(BuildContext context) {
     //var id=Get.argumentd[0];
@@ -130,7 +153,12 @@ filePickerController.file.value.name=='not'?
               )))      ],
               ),
     const SizedBox(height: 20,),
-         titleRowArticle('ویرایش عنوان مقاله',Dimention.bodyMargin/2),
+         GestureDetector(
+          onTap:() {
+            
+          },
+          
+          child: titleRowArticle('ویرایش عنوان مقاله',Dimention.bodyMargin/2)),
           Row(mainAxisAlignment: MainAxisAlignment.start,
             children: [
               

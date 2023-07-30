@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/Model/article.dart';
 import 'package:tech_blog/Model/tags.dart';
@@ -7,7 +8,7 @@ import 'package:tech_blog/services/service.dart';
 
 
 class ManageArticleController extends GetxController{
-
+TextEditingController titletextEditingController=TextEditingController();
 RxBool loading=false.obs;
   RxList<ArticleModel>articleList=RxList.empty();
   RxList<Tags>tagList=RxList.empty();
@@ -34,5 +35,15 @@ RxBool loading=false.obs;
 loading.value=false;
 
 
+  }
+
+
+  updateTitle(){
+
+    articleInfoModel.update((val) { 
+
+val!.title=titletextEditingController.text;
+
+    });
   }
 }
