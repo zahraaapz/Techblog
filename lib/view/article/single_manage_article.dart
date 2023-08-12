@@ -13,6 +13,7 @@ import 'package:tech_blog/component/constant/string.dart';
 import 'package:tech_blog/controller/article/article_controller.dart';
 import 'package:tech_blog/controller/article/manage_article.dart';
 import 'package:tech_blog/controller/file_controller.dart';
+import 'package:tech_blog/controller/home_screen_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -20,6 +21,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/services/pick_file.dart';
 import 'package:tech_blog/view/article/article-list.dart';
+import 'package:tech_blog/view/article/article_content_editor.dart';
 
 import '../../component/dimention.dart';
 
@@ -33,7 +35,7 @@ class SingleManageArticle extends StatefulWidget {
 class _SingleManageArticleState extends State<SingleManageArticle> {
 
 var manageArticleController=Get.find<ManageArticleController>();
- var articleScreenController = Get.find<ArticleScreenController>();
+
 FilePickerController filePickerController=Get.put(FilePickerController());
 
 
@@ -155,7 +157,7 @@ filePickerController.file.value.name=='not'?
     const SizedBox(height: 20,),
          GestureDetector(
           onTap:() {
-            
+        getTitle();
           },
           
           child: titleRowArticle('ویرایش عنوان مقاله',Dimention.bodyMargin/2)),
@@ -167,7 +169,10 @@ filePickerController.file.value.name=='not'?
             ],
           ),    const SizedBox(height: 20,),
 
-           titleRowArticle('ویرایش متن اصلی مقاله',Dimention.bodyMargin/2),
+           GestureDetector(
+            onTap: () => Get.to(()=>ArticleContentEditor()),
+            
+            child: titleRowArticle('ویرایش متن اصلی مقاله',Dimention.bodyMargin/2)),
       Padding(
         padding: const EdgeInsets.only(right:20.0,left: 20),
         child: Text(MyString.editOrginalTextArticle,),
@@ -175,7 +180,10 @@ filePickerController.file.value.name=='not'?
               
     const SizedBox(height: 20,),
 
-       titleRowArticle('انتخاب دسته بندی',Dimention.bodyMargin/2),
+       GestureDetector(
+        onTap: () =>chooseCatBottomSheet() ,
+        
+        child: titleRowArticle('انتخاب دسته بندی',Dimention.bodyMargin/2)),
 
                
              
@@ -192,18 +200,20 @@ filePickerController.file.value.name=='not'?
   
 
 
-  tagList( ) {
+  catList( ) {
+
+    var homeScreenController=Get.put(HomeScreenController());
     return SizedBox(
-        height: 35,
+        height: Get.height/1.7,
         child: Obx(()=>
-          ListView.builder(
+         GridView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: manageArticleController.tagList.length,
+            itemCount: homeScreenController.taglist.length,
             itemBuilder: (BuildContext context, int index) {
               return InkWell(
         
                 onTap: () {
-                   articleScreenController.getArticleWithTagesId(manageArticleController.tagList[index].id!);
+                  Get.find<ArticleScreenController>().getArticleWithTagesId(homeScreenController.taglist[index].id!);
                Get.to(ArticleList(textTheme:textStyle)) ;      },
                 child: Padding(
                   padding: const EdgeInsets.only(
@@ -212,14 +222,14 @@ filePickerController.file.value.name=='not'?
                     height: 30,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
-                    color: Colors.grey,
+                    color: SolidColor.primary,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(8, 8.0, 8, 8),
                       child: 
                       
                           Text(
-                           manageArticleController.tagList[index].title!,
+                          homeScreenController.taglist[index].title!,
                             style: textStyle.displayLarge,
                           )
                        
@@ -227,7 +237,33 @@ filePickerController.file.value.name=='not'?
                   ),
                 ),
               );
-            },
+            }, gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 5,crossAxisSpacing: 5),
           ),
         ));
-  }}
+  }
+  
+  chooseCatBottomSheet(){
+
+    Get.bottomSheet(
+      Container(
+        height: Get.height/1.5,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
+         
+          ),child: Column(children: [
+
+Text('انتخاب دسته بندی'),
+SizedBox(height: 8,),
+catList(),
+
+
+
+
+          ],),
+      ),isScrollControlled: true,persistent: true
+    );
+  }
+  
+  
+  }

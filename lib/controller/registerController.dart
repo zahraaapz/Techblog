@@ -24,8 +24,7 @@ class RegisterController extends GetxController {
       'command': 'register'
     };
 
-    var response = await DioServices()
-        .postMethod(map, '${ApiCons.baseUrl}register/action.php');
+    var response = await DioServices() .postMethod(map, '${ApiCons.baseUrl}register/action.php');
     email = emailTextEditingController.text;
     userId = response.data['user_id'];
     debugPrint(map.toString());
@@ -45,18 +44,13 @@ class RegisterController extends GetxController {
 
     debugPrint(response.data.toString());
     var status = response.data['response'];
+     var box = GetStorage();
+   box.write(StorageKey.token, response.data['token']);
+        box.write(StorageKey.userId, response.data['user_id']);
 
     switch (status) {
       case 'verified':
-        var box = GetStorage();
-        box.write(StorageKey.token, response.data['token']);
-        box.write(StorageKey.userId, response.data['user_id']);
-
-        // ignore: prefer_interpolation_to_compose_strings
-        debugPrint('read::: ' + box.read(StorageKey.token));
-
-        // ignore: prefer_interpolation_to_compose_strings
-        debugPrint('read::: ' + box.read(StorageKey.userId));
+       
         Get.offAll(MainScreen());
         break;
       case 'incorrect_code':

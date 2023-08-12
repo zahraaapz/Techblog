@@ -10,7 +10,7 @@ import '../../Model/article_info.dart';
 class SingleArticleScreenController extends GetxController {
   RxBool loading = false.obs;
   RxInt id = RxInt(0 );
-  Rx<ArticleInfoModel> articleInfo=ArticleInfoModel().obs;
+  Rx<ArticleInfoModel> articleInfo=ArticleInfoModel(null,null,null).obs;
 RxList<Tags>taglist=RxList();
 RxList<ArticleModel>relatedlist=RxList();
 
@@ -18,7 +18,7 @@ RxList<ArticleModel>relatedlist=RxList();
 
   getArticleInfo() async {
    
-articleInfo=ArticleInfoModel().obs;
+articleInfo=ArticleInfoModel(null,null,null).obs;
 
  var userId='';
     // ignore: avoid_print

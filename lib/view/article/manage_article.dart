@@ -43,6 +43,7 @@ class ManageArticle extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
         child:Obx(() =>
            manageArticleController.loading.value?
+          
              const SpinKitCircle(
             size: 30,
             color: SolidColor.primary,

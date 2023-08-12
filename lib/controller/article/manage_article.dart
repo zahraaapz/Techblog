@@ -6,17 +6,20 @@ import 'package:tech_blog/component/constant/api_constant.dart';
 import 'package:tech_blog/component/constant/string.dart';
 import 'package:tech_blog/services/service.dart';
 
+import '../../Model/article_info.dart';
+
 
 class ManageArticleController extends GetxController{
 TextEditingController titletextEditingController=TextEditingController();
 RxBool loading=false.obs;
   RxList<ArticleModel>articleList=RxList.empty();
   RxList<Tags>tagList=RxList.empty();
-  Rx<ArticleModel>articleInfoModel=ArticleModel( 
+  Rx<ArticleInfoModel>articleInfoModel=ArticleInfoModel( 
  MyString.titltArrticle,MyString.editOrginalTextArticle
 ,'').obs;
 
-  void onInit(){
+ @override
+  onInit(){
     super.onInit();
  
     getManageArticle();
