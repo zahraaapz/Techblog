@@ -15,8 +15,7 @@ RxBool loading=false.obs;
   RxList<ArticleModel>articleList=RxList.empty();
   RxList<Tags>tagList=RxList.empty();
   Rx<ArticleInfoModel>articleInfoModel=ArticleInfoModel( 
- MyString.titltArrticle,MyString.editOrginalTextArticle
-,'').obs;
+ MyString.titltArrticle,MyString.editOrginalTextArticle).obs;
 
  @override
   onInit(){

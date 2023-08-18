@@ -45,7 +45,9 @@ getTitle(){
   Get.defaultDialog(
     title: 'عنوان مقاله',
     radius: 8,
-    confirm: ElevatedButton(onPressed: (){
+    confirm: ElevatedButton(
+      style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(SolidColor.divider)),
+      onPressed: (){
 manageArticleController.updateTitle();
       Get.back();
     }, child:Text('ثبت')),
@@ -185,7 +187,7 @@ filePickerController.file.value.name=='not'?
         
         child: titleRowArticle('انتخاب دسته بندی',Dimention.bodyMargin/2)),
 
-               
+               titleRowArticle(manageArticleController.articleInfoModel.value.catName==null? 'هیچ دسته بندی انتخاب نشده' :manageArticleController.articleInfoModel.value.catName! ,Dimention.bodyMargin/2) 
              
                  ],
           ),
@@ -213,8 +215,14 @@ filePickerController.file.value.name=='not'?
               return InkWell(
         
                 onTap: () {
-                  Get.find<ArticleScreenController>().getArticleWithTagesId(homeScreenController.taglist[index].id!);
-               Get.to(ArticleList(textTheme:textStyle)) ;      },
+              manageArticleController.articleInfoModel.update((val) {
+                
+
+                val!.catName=homeScreenController.taglist[index].title!;
+                val.catId=homeScreenController.taglist[index].id!;
+              }) ;   
+               Get.back();
+                  },
                 child: Padding(
                   padding: const EdgeInsets.only(
                     right: 12),
@@ -228,9 +236,11 @@ filePickerController.file.value.name=='not'?
                       padding: const EdgeInsets.fromLTRB(8, 8.0, 8, 8),
                       child: 
                       
-                          Text(
-                          homeScreenController.taglist[index].title!,
-                            style: textStyle.displayLarge,
+                          Center(
+                            child: Text(
+                            homeScreenController.taglist[index].title!,
+                              style: textStyle.displayLarge,
+                            ),
                           )
                        
                     ),

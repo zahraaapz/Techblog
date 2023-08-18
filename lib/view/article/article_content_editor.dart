@@ -27,14 +27,20 @@ htmlEditorOptions: HtmlEditorOptions(
   
   hint: 'میتونی مقاله اینجا بنویسی....',
   shouldEnsureVisible: true,
-  initialText: manageArticleController.articleInfoModel.value.content,
+  initialText: manageArticleController.articleInfoModel.value.content!,
 
 
 
 
 ),
 callbacks: Callbacks(
-  onChangeContent: (p0) =>manageArticleController.articleInfoModel.value.content=p0 ,
+  onChangeContent: (p0) {
+
+    manageArticleController.articleInfoModel.update((val) { 
+
+      val!.content=p0;
+    });
+  } ,
 ),
 
 

@@ -16,10 +16,10 @@ class ArticleInfoModel{
 ArticleInfoModel(
 
 
-  this.id,
-   this.image,
+ 
    this.title,
-
+   this.content,
+   
 
 
    

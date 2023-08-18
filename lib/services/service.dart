@@ -11,7 +11,8 @@ class DioServices {
 
     return await dio
         .get(url,
-            options: Options(responseType: ResponseType.json, method: 'GET'))
+            options: Options(responseType: ResponseType.json, method: 'Get'
+            ))
         .then((value) {
       log(value.toString());
       return value;
