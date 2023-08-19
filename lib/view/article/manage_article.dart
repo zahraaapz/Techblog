@@ -7,11 +7,12 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/component/component.dart';
-import 'package:tech_blog/controller/article/manage_article.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/component/constant/string.dart';
 import 'package:tech_blog/main.dart';
 import 'package:tech_blog/view/article/article-list.dart';
+
+import '../../controller/article/manage_article_controller.dart';
 
 
 class ManageArticle extends StatelessWidget {

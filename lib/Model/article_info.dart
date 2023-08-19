@@ -19,6 +19,7 @@ ArticleInfoModel(
  
    this.title,
    this.content,
+   this.image,
    
 
 

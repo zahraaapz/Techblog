@@ -11,7 +11,6 @@ import 'package:get/get.dart';
 import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/component/constant/string.dart';
 import 'package:tech_blog/controller/article/article_controller.dart';
-import 'package:tech_blog/controller/article/manage_article.dart';
 import 'package:tech_blog/controller/file_controller.dart';
 import 'package:tech_blog/controller/home_screen_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
@@ -24,6 +23,7 @@ import 'package:tech_blog/view/article/article-list.dart';
 import 'package:tech_blog/view/article/article_content_editor.dart';
 
 import '../../component/dimention.dart';
+import '../../controller/article/manage_article_controller.dart';
 
 class SingleManageArticle extends StatefulWidget {
  const SingleManageArticle({super.key});
@@ -187,7 +187,14 @@ filePickerController.file.value.name=='not'?
         
         child: titleRowArticle('انتخاب دسته بندی',Dimention.bodyMargin/2)),
 
-               titleRowArticle(manageArticleController.articleInfoModel.value.catName==null? 'هیچ دسته بندی انتخاب نشده' :manageArticleController.articleInfoModel.value.catName! ,Dimention.bodyMargin/2) 
+               titleRowArticle(manageArticleController.articleInfoModel.value.catName==null? 'هیچ دسته بندی انتخاب نشده' :manageArticleController.articleInfoModel.value.catName! ,Dimention.bodyMargin/2),
+               ElevatedButton(
+                child:Text(manageArticleController.loading.value?
+               'صبر کنید..': 'ارسال مطلب'),
+                onPressed:(){
+                  manageArticleController.storeArticle();
+                }
+               ), 
              
                  ],
           ),
@@ -252,7 +259,7 @@ filePickerController.file.value.name=='not'?
         ));
   }
   
-  chooseCatBottomSheet(){
+chooseCatBottomSheet(){
 
     Get.bottomSheet(
       Container(
