@@ -89,45 +89,50 @@ SingleArticleScreenController singleArticleScreenController = Get.put(SingleArti
             itemCount: homeScreenController.topPodcast.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: ((context, index) {
-              return Padding(
-                padding: EdgeInsets.only(
-                    right: index == 0 ? Dimention.bodyMargin : 15, top: 16),
-                child: Column(
-                  children: [
-                    Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SizedBox(
-                          height: size.height / 5.3,
-                          width: size.width / 2.4,
-                          child: CachedNetworkImage(
-                            imageUrl:
-                                homeScreenController.topPodcast[index].poster!,
-                            imageBuilder: (context, imageProvider) {
-                              return Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(18),
-                                  image: DecorationImage(
-                                      image: imageProvider, fit: BoxFit.cover),
-                                ),
-                              );
-                            },
-                            placeholder: (context, url) {
-                              return const SpinKitCircle(
-                                color: SolidColor.primary,
-                                size: 32,
-                              );
-                            },
-                            errorWidget: (context, url, error) {
-                              return const Icon(
-                                Icons.image_not_supported_outlined,
-                                color: SolidColor.divider,
-                                size: 50,
-                              );
-                            },
-                          ),
-                        )),
-                    Text(homeScreenController.topPodcast[index].title!)
-                  ],
+              return GestureDetector(
+                onTap: () {
+                  Get.toNamed(NamedRoute.routeSinglePodcast,arguments: homeScreenController.topPodcast[index] );
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      right: index == 0 ? Dimention.bodyMargin : 15, top: 16),
+                  child: Column(
+                    children: [
+                      Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            height: size.height / 5.3,
+                            width: size.width / 2.4,
+                            child: CachedNetworkImage(
+                              imageUrl:
+                                  homeScreenController.topPodcast[index].poster!,
+                              imageBuilder: (context, imageProvider) {
+                                return Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(18),
+                                    image: DecorationImage(
+                                        image: imageProvider, fit: BoxFit.cover),
+                                  ),
+                                );
+                              },
+                              placeholder: (context, url) {
+                                return const SpinKitCircle(
+                                  color: SolidColor.primary,
+                                  size: 32,
+                                );
+                              },
+                              errorWidget: (context, url, error) {
+                                return const Icon(
+                                  Icons.image_not_supported_outlined,
+                                  color: SolidColor.divider,
+                                  size: 50,
+                                );
+                              },
+                            ),
+                          )),
+                      Text(homeScreenController.topPodcast[index].title!)
+                    ],
+                  ),
                 ),
               );
             })),

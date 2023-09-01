@@ -10,7 +10,6 @@ import 'package:get/get.dart';
 
 import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/component/constant/string.dart';
-import 'package:tech_blog/controller/article/article_controller.dart';
 import 'package:tech_blog/controller/file_controller.dart';
 import 'package:tech_blog/controller/home_screen_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
@@ -19,7 +18,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/services/pick_file.dart';
-import 'package:tech_blog/view/article/article-list.dart';
 import 'package:tech_blog/view/article/article_content_editor.dart';
 
 import '../../component/dimention.dart';
@@ -40,17 +38,15 @@ FilePickerController filePickerController=Get.put(FilePickerController());
 
 
 getTitle(){
-
-
-  Get.defaultDialog(
+ Get.defaultDialog(
     title: 'عنوان مقاله',
     radius: 8,
     confirm: ElevatedButton(
-      style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(SolidColor.divider)),
+   //   style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(SolidColor.divider)),
       onPressed: (){
-manageArticleController.updateTitle();
+      manageArticleController.updateTitle();
       Get.back();
-    }, child:Text('ثبت')),
+    }, child:Text('ثبت',style: textStyle.displayLarge,)),
     titleStyle: TextStyle(color: SolidColor.bg),
     backgroundColor: SolidColor.primary,
     content: TextField(
@@ -61,6 +57,7 @@ manageArticleController.updateTitle();
       ),
       decoration: InputDecoration(
         hintText: 'اینجا بنویس',
+        hintStyle: textStyle.headlineMedium
 
       ),
     ),
@@ -88,8 +85,7 @@ filePickerController.file.value.name=='not'?
                       imageUrl: manageArticleController.articleInfoModel.value.image!,
                       imageBuilder: (context, imageProvider) {
                         return Image(
-                          
-                         image: imageProvider,
+       image: imageProvider,
                         );
                       },
                       placeholder: (context, url) => const SpinKitCircle(
@@ -137,8 +133,8 @@ filePickerController.file.value.name=='not'?
               bottom: 0,left: 0,right: 0,
               
               child: Center(child: GestureDetector(
-                onTap: () {
-                  pickFile();
+                onTap: () async{
+               await   pickFile();
                 },
                 child: Container(
                   
@@ -167,7 +163,7 @@ filePickerController.file.value.name=='not'?
             children: [
               
                const SizedBox(width: 20,),
-              Text(MyString.titltArrticle),
+              Text(manageArticleController.articleInfoModel.value.title!),
             ],
           ),    const SizedBox(height: 20,),
 
@@ -177,7 +173,7 @@ filePickerController.file.value.name=='not'?
             child: titleRowArticle('ویرایش متن اصلی مقاله',Dimention.bodyMargin/2)),
       Padding(
         padding: const EdgeInsets.only(right:20.0,left: 20),
-        child: Text(MyString.editOrginalTextArticle,),
+        child: Text(manageArticleController.articleInfoModel.value.content!,),
       ),
               
     const SizedBox(height: 20,),
@@ -187,10 +183,13 @@ filePickerController.file.value.name=='not'?
         
         child: titleRowArticle('انتخاب دسته بندی',Dimention.bodyMargin/2)),
 
-               titleRowArticle(manageArticleController.articleInfoModel.value.catName==null? 'هیچ دسته بندی انتخاب نشده' :manageArticleController.articleInfoModel.value.catName! ,Dimention.bodyMargin/2),
+              
+               Text(manageArticleController.articleInfoModel.value.catName==null? 'هیچ دسته بندی انتخاب نشده' :manageArticleController.articleInfoModel.value.catName! ),
+              
+              const SizedBox(height: 60,),
                ElevatedButton(
                 child:Text(manageArticleController.loading.value?
-               'صبر کنید..': 'ارسال مطلب'),
+               'صبر کنید..': 'ارسال مطلب',style: textStyle.displayLarge,),
                 onPressed:(){
                   manageArticleController.storeArticle();
                 }

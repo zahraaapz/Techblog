@@ -30,7 +30,6 @@ Future<dynamic>postMethod(Map<String,dynamic>map,String url)async{
 var token=GetStorage().read(StorageKey.token);
 dio.options.headers['Content-Type'] = 'application/json';
 if (token!=null) {
-  
 
 dio.options.headers['authorization'] = '$token';}
 

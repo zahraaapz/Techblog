@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +9,6 @@ import 'package:tech_blog/Model/tags.dart';
 import 'package:tech_blog/component/constant/api_constant.dart';
 import 'package:tech_blog/component/constant/storage_const.dart';
 import 'package:tech_blog/component/constant/string.dart';
-import 'package:tech_blog/services/pick_file.dart';
 import 'package:tech_blog/services/service.dart';
 
 import '../../Model/article_info.dart';
@@ -20,7 +21,7 @@ RxBool loading=false.obs;
   RxList<ArticleModel>articleList=RxList.empty();
   RxList<Tags>tagList=RxList.empty();
   Rx<ArticleInfoModel>articleInfoModel=ArticleInfoModel( 
- MyString.titltArrticle,MyString.editOrginalTextArticle,null).obs;
+ MyString.titltArrticle,MyString.editOrginalTextArticle,'').obs;
 
  @override
   onInit(){
@@ -32,7 +33,7 @@ RxBool loading=false.obs;
   getManageArticle() async{
  loading.value=true;
    // var response=  await DioServices().getMethod(ApiCons.baseUrl+'article/get.php?command=published_by_me&user_id=');
-    var response=  await DioServices().getMethod('${ApiCons.baseUrl}article/get.php?command=published_by_me&user_id=198');
+    var response=  await DioServices().getMethod('${ApiCons.baseUrl}article/get.php?command=published_by_me&user_id=1');
 
      response.data.forEach((element){
 
@@ -54,7 +55,7 @@ val!.title=titletextEditingController.text;
     });
   }
 
-  storeArticle()async{
+storeArticle()async{
 loading.value=true;
 var filePickerController=Get.find<FilePickerController>();
 Map<String,dynamic>map={
@@ -67,8 +68,8 @@ Map<String,dynamic>map={
 
 };
 
-var response=await DioServices().postMethod(map, ApiCons.baseUrl+'article/post.php');
-
+var response=await DioServices().postMethod(map, '${ApiCons.baseUrl}article/post.php');
+log(response.data.toString());
 loading.value=false;
   }
 }

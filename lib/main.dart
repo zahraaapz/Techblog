@@ -10,6 +10,7 @@ import 'package:tech_blog/view/ExractHomeScreen.dart';
 import 'package:tech_blog/view/article/manage_article.dart';
 import 'package:tech_blog/view/article/single.dart';
 import 'package:tech_blog/view/article/single_manage_article.dart';
+import 'package:tech_blog/view/podcast/single_podcast.dart';
 
 import 'package:tech_blog/view/splashScreen.dart';
 
@@ -37,12 +38,13 @@ class Main extends StatelessWidget {
 
     locale: const Locale('fa'),
       
-      home:  const SplashScreen(),
+      home:   SplashScreen(),
   getPages: [
 
 
 
     GetPage(name:NamedRoute.routeMainScreen , page: ()=>MainScreen(),binding: RegisterBinding()),
+    GetPage(name:NamedRoute.routeSinglePodcast , page: ()=>SinglePodcast()),
     GetPage(name: NamedRoute.routeSingleArticle, page: ()=>const Single(),binding: ArticleBinding()),
     GetPage(name: NamedRoute.routeManageArticle, page: ()=>ManageArticle(),binding: ArticleManagerBinding()),
     GetPage(name: NamedRoute.routeSingleManageArticle, page: ()=>const SingleManageArticle(),binding: ArticleManagerBinding()),
@@ -89,4 +91,5 @@ class NamedRoute{
   static String routeSingleArticle='/SingleArticle';
   static String routeManageArticle='/ManageArticle';
   static String routeSingleManageArticle='/SigleManageArticle';
+  static String routeSinglePodcast='/SiglePodcast';
 }

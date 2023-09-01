@@ -3,13 +3,13 @@ import 'package:tech_blog/component/constant/api_constant.dart';
 class ArticleModel{
 String? id;
 String? image;
-String? title;
+String? title; 
 String? catId;
 String? catName;
 String? author;
 String? view;
 String? status;
-String? createdAt;
+String? createdAt;//shift+alt
 
 ArticleModel(
 

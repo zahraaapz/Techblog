@@ -71,7 +71,8 @@ class RegisterController extends GetxController {
   }
 
   routeToWriteBottomSheet() {
-    Get.bottomSheet(Container(
+    Get.bottomSheet(
+      Container(
       height: Get.height / 2.5,
       decoration: const BoxDecoration(
           color: Colors.white,
