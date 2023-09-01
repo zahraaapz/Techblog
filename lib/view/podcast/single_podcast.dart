@@ -12,197 +12,228 @@ import '../../component/component.dart';
 import '../../component/constant/color.dart';
 import '../../gen/assets.gen.dart';
 
-class SinglePodcast  extends StatelessWidget{
+class SinglePodcast extends StatelessWidget {
+  late SinglePodcastCotroller singlePodcastCotroller;
+  late PodcastModel podcastModel;
 
-late SinglePodcastCotroller singlePodcastCotroller;
-late PodcastModel podcastModel;
-
-SinglePodcast(){
-podcastModel=Get.arguments;
-singlePodcastCotroller=Get.put(SinglePodcastCotroller(id: podcastModel.id));
- }
+  SinglePodcast() {
+    podcastModel = Get.arguments;
+    singlePodcastCotroller =
+        Get.put(SinglePodcastCotroller(id: podcastModel.id));
+  }
   @override
   Widget build(BuildContext context) {
-  return  SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children:[ 
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: SingleChildScrollView(
-              physics:const BouncingScrollPhysics(),
-              child:
-              Column(
-                children: [
-                  Stack(
-                    children: [
-                      CachedNetworkImage(
+   
+    return SafeArea(
+        child: Scaffold(
+            body: Stack(children: [
+      Positioned(
+        top: 0,
+        left: 0,
+        right: 0,
+        child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      height: Get.height / 3,
+                      child: CachedNetworkImage(
                           imageUrl: podcastModel.poster!,
                           imageBuilder: (context, imageProvider) {
                             return Image(
-                               fit: BoxFit.fill,
-                             image: imageProvider,
-                            
+                              fit: BoxFit.fill,
+                              image: imageProvider,
                             );
                           },
                           placeholder: (context, url) => const SpinKitCircle(
                                 color: SolidColor.primary,
                                 size: 32,
                               ),
-                          errorWidget: (context, url, error) =>
-                              Image.asset(Assets.images.singlePlaceHolder.path)),
-                      Positioned(
-                        right: 0,
-                        left: 0,
-                        top: 0,
-                        child: Container(
-                          height: 60,
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  end: Alignment.bottomCenter,
-                                  begin: Alignment.topCenter,
-                                  colors: GradientColor.singleAppbar)),
-                          child:  Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              const SizedBox(
-                                width: 20,
+                          errorWidget: (context, url, error) => Image.asset(
+                              Assets.images.singlePlaceHolder.path)),
+                    ),
+                    Positioned(
+                      right: 0,
+                      left: 0,
+                      top: 0,
+                      child: Container(
+                        height: 60,
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                end: Alignment.bottomCenter,
+                                begin: Alignment.topCenter,
+                                colors: GradientColor.singleAppbar)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            GestureDetector(
+                              onTap: () => Get.back(),
+                              child: const Icon(
+                                Icons.arrow_back,
+                                color: Colors.white,
+                                size: 24,
+                                shadows: [
+                                  Shadow(color: Colors.blueGrey),
+                                  Shadow(color: Colors.black)
+                                ],
                               ),
-                             
-                              GestureDetector(
-                                onTap: () => Get.back(),
-                                child: const Icon(
-                                  Icons.arrow_back,
-                                  color: Colors.white,
-                                  size: 24,shadows: [Shadow(color: Colors.blueGrey),Shadow(color: Colors.black)],
-                                ),
-                              ), const Expanded(child: SizedBox()),
-                            
-                              const SizedBox(
-                                width: 20,
+                            ),
+                            const Expanded(child: SizedBox()),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Share.share('');
+                              },
+                              child: const Icon(
+                                Icons.share,
+                                color: Colors.white,
+                                size: 24,
                               ),
-                              InkWell(
-                                onTap: () {
-                                  Share.share('');
-                                },
-                                child: const Icon(
-                                  Icons.share,
-                                  color: Colors.white,
-                                  size: 24,
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 20,
-                              ),
-                            ],
-                          ),
+                            ),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                          ],
                         ),
-                      )
-                 ,   ],
-                  ),
-              Padding(
-                padding: const EdgeInsets.only(right: 10,top:25),
-                child: Row(mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(podcastModel.title!,style:textStyle.headlineLarge),
+                      ),
+                    ),
                   ],
                 ),
-              ),
-              
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(children:[
-              
-                    Image.asset(Assets.images.avatar.path,height:50),
-                   const SizedBox(width:16),
-              
-               Text(podcastModel.publisher!,style:textStyle.bodyMedium),
-                const SizedBox(
-                                width: 20,
-                              ),
-               
-                ]),
-              ),Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListView.builder(
-                  itemCount: 5,
-                  shrinkWrap: true,
-                  itemBuilder:(context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                            Row(children: [
-                                   ImageIcon(Image.asset(Assets.images.mic.path).image,color: SolidColor.colorTitle,),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10, top: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(podcastModel.title!, style: textStyle.headlineLarge),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(children: [
+                    Image.asset(Assets.images.avatar.path, height: 50),
+                    const SizedBox(width: 16),
+                    Text(podcastModel.publisher!, style: textStyle.bodyMedium),
                     const SizedBox(
+                      width: 20,
+                    ),
+                  ]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Obx(
+                    () => ListView.builder(
+                      itemCount: singlePodcastCotroller.podcastFileList.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  ImageIcon(
+                                    Image.asset(Assets.images.mic.path).image,
+                                    color: SolidColor.colorTitle,
+                                  ),
+                                  const SizedBox(
                                     width: 8,
                                   ),
-                                 Text('فریلنسر دیوانه',style:textStyle.bodyMedium),
-                                
-                            ],)
-                                   ,Text('22:40',style:textStyle.bodyMedium),
-                                
-                                
-                    ],),
-                  );
-                },),
-              )
-                  
-                ],
-                
-              )),
-            ),
-            Positioned(
-              bottom: 8,
-              right:Dimention.bodyMargin,
-            left:Dimention.bodyMargin,
-              
-              child: Container(
-                height: Get.height/7,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(18),
-                  gradient: LinearGradient(colors: GradientColor.naviButColor)
-                ),
-           child:  Padding(
-             padding: const EdgeInsets.all(8.0),
-             child: Column(
+                                  SizedBox(
+                                      width: Get.width / 1.5,
+                                      child: Text(
+                                          singlePodcastCotroller
+                                              .podcastFileList[index].title!,
+                                          style: textStyle.bodyMedium)),
+                                ],
+                              ),
+                              Text(
+                                  '${singlePodcastCotroller.podcastFileList[index].length!}:00',
+                                  style: textStyle.bodyMedium),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                )
+              ],
+            )),
+      ),
+      Positioned(
+          bottom: 8,
+          right: Dimention.bodyMargin,
+          left: Dimention.bodyMargin,
+          child: Container(
+            height: Get.height / 7,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(18),
+                gradient: LinearGradient(colors: GradientColor.naviButColor)),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-           
-              children: [
-              LinearPercentIndicator(
-                percent: 1,
-                backgroundColor: Colors.white,
-                progressColor: SolidColor.selectedPadCast,
-              )
-           ,const Row(
-             mainAxisAlignment: MainAxisAlignment.spaceAround,
-             children: [
-           
-           
-             Icon(Icons.skip_next,color: Colors.white,),
-              Icon(Icons.play_circle_fill,color: Colors.white,size: 48,),
-               Icon(Icons.skip_previous,color: Colors.white,),
-               SizedBox(),
-               Icon(Icons.repeat,color: Colors.white,),
-           ],)
-           
-             ],),
-           ),   )
-            
-            
-            )
-        
-        ])));
+                children: [
+                  LinearPercentIndicator(
+                    percent: 1,
+                    backgroundColor: Colors.white,
+                    progressColor: SolidColor.selectedPadCast,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      GestureDetector(
+                          onTap: () async {
+                            await singlePodcastCotroller.player.seekToNext();
+                          },
+                          child: Icon(
+                            Icons.skip_next,
+                            color: Colors.white,
+                          )),
+                      GestureDetector(
+                          onTap: () {
+                            singlePodcastCotroller.player.playing
+                                ? singlePodcastCotroller.player.pause()
+                                : singlePodcastCotroller.player.play();
+                            singlePodcastCotroller.playState.value =
+                                singlePodcastCotroller.player.playing;
+                          },
+                          child: Obx(() => Icon(
+                                singlePodcastCotroller.playState.value
+                                    ? Icons.pause_circle_filled
+                                    : Icons.play_circle_fill,
+                                color: Colors.white,
+                                size: 48,
+                              ))),
+                      GestureDetector(
+                          onTap: () async {
+                            await singlePodcastCotroller.player
+                                .seekToPrevious();
+                          },
+                          child: Icon(
+                            Icons.skip_previous,
+                            color: Colors.white,
+                          )),
+                      SizedBox(),
+                      Icon(
+                        Icons.repeat,
+                        color: Colors.white,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ))
+    ])));
   }
-  
-  
-
-
-
-
 }
-
-

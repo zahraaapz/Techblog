@@ -34,7 +34,7 @@ ArticleInfoModel.fromJson(Map<String,dynamic> element){
  id=element['info']['id'];
  title=element['info']['title'];
  content=element['info']['content'];
- image=ApiCons.imageBaseUrl+element['info']['image'];
+ image=ApiCons.hostDiUrl+element['info']['image'];
  catId=element['info']['cat_id'];
  catName=element['info']['cat_name'];
  author=element['info']['author'];

@@ -1,19 +1,21 @@
+import 'package:tech_blog/component/constant/api_constant.dart';
+
 class PodcastFileModel{
 
 String ?id;
 String ?podcastId;
 String ?file;
 String ?title;
-String ?lenght;
+String ?length;
 
 PodcastFileModel();
 PodcastFileModel.fromJson(Map<String,dynamic>element){
 
 id=element['id'];
 podcastId=element['podcast_id'];
-file=element['file'];
+file=ApiCons.hostDiUrl+element['file'];
 title=element['title'];
-lenght=element['lenght'];
+length=element['length'];
 
 
 }

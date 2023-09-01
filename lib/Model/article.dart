@@ -23,7 +23,7 @@ ArticleModel(
 ArticleModel.fromJson(Map<String,dynamic>element){
 
  id=element['id'];
- image=ApiCons.imageBaseUrl+element['image'];
+ image=ApiCons.hostDiUrl+element['image'];
  title=element['title'];
  catId=element['cat_id'];
  catName=element['cat_name'];
