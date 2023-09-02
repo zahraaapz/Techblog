@@ -15,13 +15,14 @@ RxList<PodcastFileModel>podcastFileList=RxList();
 RxBool playState=false.obs;
 final player=AudioPlayer();
 SinglePodcastCotroller({required this.id});
-
+ RxInt currectFileIndex=0.obs;
 
 @override
-onInit(){
-getPodcastFile();
+onInit()async{
 super.onInit();
 playList=ConcatenatingAudioSource(children: [],useLazyPreparation: true) ;
+await getPodcastFile();
+await player.setAudioSource(playList,initialIndex:0,initialPosition:Duration.zero);
 }
 
 
