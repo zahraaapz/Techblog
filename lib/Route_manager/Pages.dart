@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
 import 'package:tech_blog/Route_manager/Named.dart';
-import 'package:tech_blog/view/splash/splashScreen.dart';
+import 'package:tech_blog/view/Splash/splashScreen.dart';
 
 import 'binding.dart';
 import '../view/Home_screen/ExractHomeScreen.dart';
-import '../view/article/manage_article.dart';
-import '../view/article/single.dart';
-import '../view/article/single_manage_article.dart';
-import '../view/podcast/single_podcast.dart';
+import '../view/Article/manage_article.dart';
+import '../view/Article/single.dart';
+import '../view/Article/single_manage_article.dart';
+import '../view/Podcast/single_podcast.dart';
 
 class Pages{
 

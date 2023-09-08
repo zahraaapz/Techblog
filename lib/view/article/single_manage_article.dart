@@ -18,7 +18,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/services/pick_file.dart';
-import 'package:tech_blog/view/article/article_content_editor.dart';
+import 'package:tech_blog/view/Article/article_content_editor.dart';
 
 import '../../component/dimention.dart';
 import '../../controller/article/manage_article_controller.dart';

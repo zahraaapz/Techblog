@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
-import 'package:tech_blog/view/article/article-list.dart';
+import 'package:tech_blog/view/Article/article-list.dart';
 
 import '../../controller/article/manage_article_controller.dart';
 

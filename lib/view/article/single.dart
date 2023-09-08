@@ -11,7 +11,7 @@ import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'package:tech_blog/component/constant/color.dart';
-import 'package:tech_blog/view/article/article-list.dart';
+import 'package:tech_blog/view/Article/article-list.dart';
 
 class Single extends StatefulWidget {
  const Single({super.key});
