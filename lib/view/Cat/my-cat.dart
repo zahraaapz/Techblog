@@ -5,7 +5,7 @@ import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/Model/model.dart';
 
-import '../component/dimention.dart';
+import '../../component/dimention.dart';
 
 class MyCats extends StatefulWidget {
   const MyCats({super.key});

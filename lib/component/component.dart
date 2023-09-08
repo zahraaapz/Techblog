@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/Model/model.dart';
-import 'package:tech_blog/component/dimention.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../gen/assets.gen.dart';

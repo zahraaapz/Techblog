@@ -12,8 +12,8 @@ import 'package:tech_blog/controller/home_screen_controller.dart';
 import 'package:tech_blog/view/article/article-list.dart';
 import 'package:tech_blog/view/article/single.dart';
 
-import '../Route_manager/Named.dart';
-import '../component/dimention.dart';
+import '../../Route_manager/Named.dart';
+import '../../component/dimention.dart';
 
 
 

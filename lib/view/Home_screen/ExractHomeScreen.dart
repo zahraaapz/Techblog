@@ -13,10 +13,10 @@ import 'package:tech_blog/controller/registerController.dart';
 
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/services/service.dart';
-import 'package:tech_blog/view/homeScreen.dart';
-import 'package:tech_blog/view/profileScreen.dart';
+import 'package:tech_blog/view/Home_screen/homeScreen.dart';
+import 'package:tech_blog/view/Profile/profileScreen.dart';
 
-import '../component/constant/api_constant.dart';
+import '../../component/constant/api_constant.dart';
 
 
 

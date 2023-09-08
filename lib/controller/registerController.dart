@@ -10,7 +10,7 @@ import 'package:tech_blog/gen/assets.gen.dart';
 
 import 'package:tech_blog/register/register.dart';
 import 'package:tech_blog/services/service.dart';
-import 'package:tech_blog/view/ExractHomeScreen.dart';
+import 'package:tech_blog/view/Home_screen/ExractHomeScreen.dart';
 
 import '../Route_manager/Named.dart';
 
