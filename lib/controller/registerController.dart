@@ -7,10 +7,12 @@ import 'package:tech_blog/component/constant/api_constant.dart';
 import 'package:tech_blog/component/constant/storage_const.dart';
 import 'package:tech_blog/component/constant/string.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/main.dart';
+
 import 'package:tech_blog/register/register.dart';
 import 'package:tech_blog/services/service.dart';
 import 'package:tech_blog/view/ExractHomeScreen.dart';
+
+import '../Route_manager/Named.dart';
 
 class RegisterController extends GetxController {
   TextEditingController emailTextEditingController = TextEditingController();

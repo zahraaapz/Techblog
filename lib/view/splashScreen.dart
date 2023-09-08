@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/component/constant/color.dart';
-import 'package:tech_blog/main.dart';
-import 'package:tech_blog/view/ExractHomeScreen.dart';
+
+import '../Route_manager/Named.dart';
 import '../gen/assets.gen.dart';
 
 class SplashScreen extends StatefulWidget {

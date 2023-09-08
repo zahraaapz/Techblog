@@ -5,8 +5,9 @@ import 'package:get/get.dart';
 
 
 import 'package:tech_blog/component/constant/color.dart';
-import 'package:tech_blog/main.dart';
 
+
+import '../../Route_manager/Named.dart';
 import '../../controller/article/article_controller.dart';
 import '../../controller/article/article_controller_single.dart';
 

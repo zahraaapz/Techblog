@@ -205,13 +205,21 @@ class SinglePodcast extends StatelessWidget {
                        baseBarColor:  Colors.white,
                        buffered: singlePodcastCotroller.bufferedValue.value,
                        bufferedBarColor:  Color.fromARGB(134, 233, 192, 131),
-                       onSeek: (value) {
+                       onSeek: (value) async{
 
 
                          singlePodcastCotroller.player.seek(value);
-                         singlePodcastCotroller.player.playing?
-                         singlePodcastCotroller.startProgressBar():
-                         singlePodcastCotroller.timer!.cancel();
+                     
+
+                         if(  singlePodcastCotroller.player.playing){
+                          singlePodcastCotroller.startProgressBar();
+                         }else if(value<=Duration(seconds: 0)){
+                          await singlePodcastCotroller.player.seekToNext();
+                          singlePodcastCotroller.currectFileIndex.value=singlePodcastCotroller.player.currentIndex!;
+                       singlePodcastCotroller.timerCheck();  }
+
+
+
                        
                        },
                     
@@ -225,6 +233,7 @@ class SinglePodcast extends StatelessWidget {
                             await singlePodcastCotroller.player.seekToNext();
                             singlePodcastCotroller.currectFileIndex.value =
                                 singlePodcastCotroller.player.currentIndex!;
+                                 singlePodcastCotroller.timerCheck(); 
                           },
                           child: const Icon(
                             Icons.skip_next,
@@ -262,6 +271,7 @@ class SinglePodcast extends StatelessWidget {
                                 .seekToPrevious();
                             singlePodcastCotroller.currectFileIndex.value =
                                 singlePodcastCotroller.player.currentIndex!;
+                                 singlePodcastCotroller.timerCheck(); 
                           },
                           child: const Icon(
                             Icons.skip_previous,

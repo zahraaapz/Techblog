@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:tech_blog/binding.dart';
+import 'package:tech_blog/Route_manager/Named.dart';
+import 'package:tech_blog/Route_manager/Pages.dart';
+import 'package:tech_blog/Route_manager/binding.dart';
 import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/component/component.dart';
-import 'package:tech_blog/view/ExractHomeScreen.dart';
-import 'package:tech_blog/view/article/manage_article.dart';
-import 'package:tech_blog/view/article/single.dart';
-import 'package:tech_blog/view/article/single_manage_article.dart';
-import 'package:tech_blog/view/podcast/single_podcast.dart';
+
 
 import 'package:tech_blog/view/splashScreen.dart';
 
@@ -32,23 +30,15 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
     return GetMaterialApp(
+      initialRoute:NamedRoute.routeMain ,
       initialBinding: RegisterBinding(),
       theme: lightTheme(textTheme),
       debugShowCheckedModeBanner: false,
 
     locale: const Locale('fa'),
       
-      home:   SplashScreen(),
-  getPages: [
-
-
-
-    GetPage(name:NamedRoute.routeMainScreen , page: ()=>MainScreen(),binding: RegisterBinding()),
-    GetPage(name:NamedRoute.routeSinglePodcast , page: ()=>SinglePodcast()),
-    GetPage(name: NamedRoute.routeSingleArticle, page: ()=>const Single(),binding: ArticleBinding()),
-    GetPage(name: NamedRoute.routeManageArticle, page: ()=>ManageArticle(),binding: ArticleManagerBinding()),
-    GetPage(name: NamedRoute.routeSingleManageArticle, page: ()=>const SingleManageArticle(),binding: ArticleManagerBinding()),
-  ],  );
+      home:   const SplashScreen(),
+  getPages: Pages.page );
   }
 
   ThemeData lightTheme(TextTheme textTheme) {
@@ -84,12 +74,4 @@ class Main extends StatelessWidget {
         fontFamily: 'dana',
         textTheme: textStyle);
   }
-}
-class NamedRoute{
-
-  static String routeMainScreen='/MainScreen';
-  static String routeSingleArticle='/SingleArticle';
-  static String routeManageArticle='/ManageArticle';
-  static String routeSingleManageArticle='/SigleManageArticle';
-  static String routeSinglePodcast='/SiglePodcast';
 }

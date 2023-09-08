@@ -8,12 +8,13 @@ import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/controller/article/article_controller.dart';
 import 'package:tech_blog/controller/article/article_controller_single.dart';
 import 'package:tech_blog/controller/home_screen_controller.dart';
-import 'package:tech_blog/main.dart';
+
 import 'package:tech_blog/view/article/article-list.dart';
 import 'package:tech_blog/view/article/single.dart';
 
+import '../Route_manager/Named.dart';
 import '../component/dimention.dart';
-import '../gen/assets.gen.dart';
+
 
 
 class HomeScreen extends StatelessWidget {

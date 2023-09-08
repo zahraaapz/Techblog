@@ -9,9 +9,10 @@ import 'package:tech_blog/component/constant/color.dart';
 import 'package:tech_blog/component/component.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/component/constant/string.dart';
-import 'package:tech_blog/main.dart';
+
 import 'package:tech_blog/view/article/article-list.dart';
 
+import '../../Route_manager/Named.dart';
 import '../../controller/article/manage_article_controller.dart';
 
 

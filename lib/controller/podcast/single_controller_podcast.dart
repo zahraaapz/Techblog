@@ -54,10 +54,24 @@ Rx<Duration>bufferedValue=Duration(seconds: 0).obs;
 Timer? timer;
 
 
+timerCheck(){
+
+if(player.playing){
+ startProgressBar();
+}
+else{
+  timer!.cancel();
+progressValue.value=Duration(seconds: 0);
+bufferedValue.value=Duration(seconds: 0);
+}
+
+}
+
+
 startProgressBar(){
 
   const tick= Duration(seconds: 1);
-  int duration=player.duration!.inSeconds;
+  int duration=player.duration!.inSeconds - player.position.inSeconds;
 
   if (timer!=null) {
     if (timer!.isActive) {
@@ -72,8 +86,8 @@ timer=Timer.periodic(tick, (timer) {
   bufferedValue.value=player.bufferedPosition;
 
   if (duration<=0) {
-    timer.cancel();
-      progressValue.value=Duration(seconds: 0);
+  timer.cancel();
+  progressValue.value=Duration(seconds: 0);
   bufferedValue.value=Duration(seconds: 0);
   }
  });
